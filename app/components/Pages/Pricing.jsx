@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Pricing extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid className="container-md">
+                <Container className="container-md">
                     <div className="text-center mb-lg pb-lg">
                       <div className="h2 text-bold">Start your own app today</div>
                       <p>Demonstration plans in different options to fit your project</p>
@@ -134,7 +134,7 @@ class Pricing extends React.Component {
                         </div>
                       </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

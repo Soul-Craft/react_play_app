@@ -6,11 +6,8 @@ import BootgridRun from './Bootgrid.run';
 
 class Bootgrid extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         BootgridRun();
     }
 

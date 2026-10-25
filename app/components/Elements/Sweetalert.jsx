@@ -5,11 +5,8 @@ import SweetalertRun from './Sweetalert.run';
 
 class Sweetalert extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         SweetalertRun();
     }
 

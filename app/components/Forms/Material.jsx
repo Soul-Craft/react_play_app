@@ -5,7 +5,7 @@ import './Material.scss';
 
 class Material extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 

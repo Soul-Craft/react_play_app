@@ -5,11 +5,8 @@ import RadialRun from './Radial.run'
 
 class Radial extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         RadialRun();
     }
 

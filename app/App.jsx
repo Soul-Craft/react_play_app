@@ -9,16 +9,17 @@
  *
  */
 
+import './Vendor';
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Router, Route, Link, IndexRoute, useRouterHistory } from 'react-router';
-import { createHistory } from 'history'
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router';
 
 import Core from './components/Core/Core';
-import Bootstrap from './components/Bootstrap/Bootstrap';
-import Common from './components/Common/Common';
-import Colors from './components/Colors/Colors';
-import FloatButton from './components/FloatButton/FloatButton';
+import './components/Bootstrap/Bootstrap';
+import './components/Common/Common';
+import './components/Colors/Colors';
+import './components/FloatButton/FloatButton';
 import Translate from './components/Translate/Translate';
 
 import Dashboard from './components/Dashboard/Dashboard';
@@ -32,7 +33,7 @@ import User from './components/User/User';
 import Maps from './components/Maps/Maps';
 import Pages from './components/Pages/Pages';
 
-import Utils from './components/Utils/Utils';
+import './components/Utils/Utils';
 
 Translate();
 
@@ -49,108 +50,101 @@ $(() => {
 
 })
 
-const browserHistory = useRouterHistory(createHistory)({ basename: '/' })
-
 // Declare routes
-ReactDOM.render(
-    <Router history={browserHistory}>
-        <Route path="/" component={Core}>
+createRoot(document.getElementById('app')).render(
+    <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Core />}>
 
-            {/* Default route*/}
-            <IndexRoute component={Dashboard} />
+                {/* Default route*/}
+                <Route index element={<Dashboard />} />
 
-            <Route path="dashboard" component={Dashboard} />
-            <Route path="cards" component={Cards} />
+                <Route path="dashboard" element={<Dashboard />} />
+                <Route path="cards" element={<Cards />} />
 
-            <Route path="charts">
-                <Route path="radial" component={Charts.Radial} />
-                <Route path="flot" component={Charts.Flot} />
-                <Route path="rickshaw" component={Charts.Rickshaw} />
+                <Route path="charts">
+                    <Route path="radial" element={<Charts.Radial />} />
+                    <Route path="flot" element={<Charts.Flot />} />
+                    <Route path="rickshaw" element={<Charts.Rickshaw />} />
+                </Route>
+
+                <Route path="elements">
+                    <Route path="bootstrap" element={<Elements.Bootstrapui />} />
+                    <Route path="buttons" element={<Elements.Buttons />} />
+                    <Route path="colors" element={<Elements.Colors />} />
+                    <Route path="grid" element={<Elements.Grid />} />
+                    <Route path="gridmasonry" element={<Elements.GridMasonry />} />
+                    <Route path="icons" element={<Elements.Icons />} />
+                    <Route path="lists" element={<Elements.Lists />} />
+                    <Route path="nestable" element={<Elements.Nestable />} />
+                    <Route path="spinners" element={<Elements.Spinners />} />
+                    <Route path="sweetalert" element={<Elements.Sweetalert />} />
+                    <Route path="typography" element={<Elements.Typography />} />
+                    <Route path="utilities" element={<Elements.Utilities />} />
+                    <Route path="whiteframes" element={<Elements.Whiteframes />} />
+                </Route>
+
+                <Route path="tables">
+                    <Route path="tableclassic" element={<Tables.TablesClassic />} />
+                    <Route path="datatable" element={<Tables.Datatable />} />
+                    <Route path="bootgrid" element={<Tables.Bootgrid />} />
+                </Route>
+
+                <Route path="forms">
+                    <Route path="dropzone" element={<Forms.Dropzone />} />
+                    <Route path="editor" element={<Forms.Editor />} />
+                    <Route path="advanced" element={<Forms.FormsAdvanced />} />
+                    <Route path="classic" element={<Forms.FormsClassic />} />
+                    <Route path="material" element={<Forms.Material />} />
+                    <Route path="validation" element={<Forms.Validation />} />
+                    <Route path="wizard" element={<Forms.Wizard />} />
+                    <Route path="xeditable" element={<Forms.XEditable />} />
+                </Route>
+
+                <Route path="layouts">
+                    <Route path="boxed" element={<Layouts.LayoutsBoxed />} />
+                    <Route path="columns" element={<Layouts.LayoutsColumns />} />
+                    <Route path="containers" element={<Layouts.LayoutsContainers />} />
+                    <Route path="overlap" element={<Layouts.LayoutsOverlap />} />
+                    <Route path="tabs" element={<Layouts.LayoutsTabs />} />
+                </Route>
+
+                <Route path="maps">
+                    <Route path="google" element={<Maps.GoogleMap />} />
+                    <Route path="googlefull" element={<Maps.GoogleMapFull />} />
+                    <Route path="vector" element={<Maps.VectorMap />} />
+                    <Route path="datamaps" element={<Maps.Datamaps />} />
+                </Route>
+
+                <Route path="pages">
+                    <Route path="blog" element={<Pages.Blog />} />
+                    <Route path="blogarticle" element={<Pages.BlogArticle />} />
+                    <Route path="contacts" element={<Pages.Contacts />} />
+                    <Route path="faq" element={<Pages.Faq />} />
+                    <Route path="gallery" element={<Pages.Gallery />} />
+                    <Route path="invoice" element={<Pages.Invoice />} />
+                    <Route path="messages" element={<Pages.Messages />} />
+                    <Route path="pricing" element={<Pages.Pricing />} />
+                    <Route path="profile" element={<Pages.Profile />} />
+                    <Route path="projects" element={<Pages.Projects />} />
+                    <Route path="search" element={<Pages.Search />} />
+                    <Route path="timeline" element={<Pages.Timeline />} />
+                    <Route path="wall" element={<Pages.Wall />} />
+                </Route>
+
+                {/* Not found handler */}
+                {/*<Route path="*" element={<NotFound />} />*/}
+
             </Route>
 
-            <Route path="elements">
-                <Route path="bootstrap" component={Elements.Bootstrapui} />
-                <Route path="buttons" component={Elements.Buttons} />
-                <Route path="colors" component={Elements.Colors} />
-                <Route path="elements" component={Elements.Elements} />
-                <Route path="grid" component={Elements.Grid} />
-                <Route path="gridmasonry" component={Elements.GridMasonry} />
-                <Route path="icons" component={Elements.Icons} />
-                <Route path="lists" component={Elements.Lists} />
-                <Route path="nestable" component={Elements.Nestable} />
-                <Route path="spinners" component={Elements.Spinners} />
-                <Route path="sweetalert" component={Elements.Sweetalert} />
-                <Route path="typography" component={Elements.Typography} />
-                <Route path="utilities" component={Elements.Utilities} />
-                <Route path="whiteframes" component={Elements.Whiteframes} />
+            {/* User Pages */}
+            <Route element={<User.Layout />}>
+                <Route path="login" element={<User.Login />} />
+                <Route path="signup" element={<User.Signup />} />
+                <Route path="recover" element={<User.Recover />} />
+                <Route path="lock" element={<User.Lock />} />
             </Route>
 
-            <Route path="tables">
-                <Route path="tableclassic" component={Tables.TablesClassic} />
-                <Route path="datatable" component={Tables.Datatable} />
-                <Route path="bootgrid" component={Tables.Bootgrid} />
-            </Route>
-
-            <Route path="forms">
-                <Route path="dropzone" component={Forms.Dropzone} />
-                <Route path="editor" component={Forms.Editor} />
-                <Route path="advanced" component={Forms.FormsAdvanced} />
-                <Route path="classic" component={Forms.FormsClassic} />
-                <Route path="material" component={Forms.Material} />
-                <Route path="validation" component={Forms.Validation} />
-                <Route path="wizard" component={Forms.Wizard} />
-                <Route path="xeditable" component={Forms.XEditable} />
-            </Route>
-
-            <Route path="layouts">
-                <Route path="boxed" component={Layouts.LayoutsBoxed} />
-                <Route path="columns" component={Layouts.LayoutsColumns} />
-                <Route path="containers" component={Layouts.LayoutsContainers} />
-                <Route path="overlap" component={Layouts.LayoutsOverlap} />
-                <Route path="tabs" component={Layouts.LayoutsTabs} />
-            </Route>
-
-            <Route path="maps">
-                <Route path="google" component={Maps.GoogleMap} />
-                <Route path="googlefull" component={Maps.GoogleMapFull} />
-                <Route path="vector" component={Maps.VectorMap} />
-                <Route path="datamaps" component={Maps.Datamaps} />
-            </Route>
-
-            <Route path="pages">
-                <Route path="blog" component={Pages.Blog} />
-                <Route path="blogarticle" component={Pages.BlogArticle} />
-                <Route path="contacts" component={Pages.Contacts} />
-                <Route path="faq" component={Pages.Faq} />
-                <Route path="gallery" component={Pages.Gallery} />
-                <Route path="invoice" component={Pages.Invoice} />
-                <Route path="messages" component={Pages.Messages} />
-                <Route path="pricing" component={Pages.Pricing} />
-                <Route path="profile" component={Pages.Profile} />
-                <Route path="projects" component={Pages.Projects} />
-                <Route path="search" component={Pages.Search} />
-                <Route path="timeline" component={Pages.Timeline} />
-                <Route path="wall" component={Pages.Wall} />
-            </Route>
-
-            {/* Not found handler */}
-            {/*<Route path="*" component={NotFound}/>*/}
-
-        </Route>
-
-        {/* User Pages */}
-        <Route path="/" component={User.Layout}>
-            <Route path="login" component={User.Login}/>
-            <Route path="signup" component={User.Signup}/>
-            <Route path="recover" component={User.Recover}/>
-            <Route path="lock" component={User.Lock}/>
-        </Route>
-
-    </Router>,
-    document.getElementById('app')
+        </Routes>
+    </BrowserRouter>
 );
-
-// Auto close sidebar on route changes
-browserHistory.listen(function(ev) {
-  $('.sidebar-visible').removeClass('sidebar-visible');
-});

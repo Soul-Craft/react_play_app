@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Invoice extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <div className="card">
                         <div className="card-body">
                             <Row>
@@ -99,7 +99,7 @@ class Invoice extends React.Component {
                             </div>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

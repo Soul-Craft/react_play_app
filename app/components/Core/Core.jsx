@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import React, { useEffect, useRef } from 'react';
+import { useLocation, useOutlet } from 'react-router';
 
 import './Core.scss';
 import './LayoutVariants.scss';
@@ -9,48 +9,57 @@ import HeaderSearch from '../Header/HeaderSearch';
 import Sidebar from '../Sidebar/Sidebar';
 import Settings from '../Settings/Settings';
 
-class Core extends React.Component {
-    render() {
+const animationName = 'rag-fadeIn'
 
-        const animationName = 'rag-fadeIn'
+function Core() {
+    const location = useLocation();
+    const outlet = useOutlet();
+    const mainRef = useRef(null);
+    const firstRender = useRef(true);
 
-        return (
-            <div className="layout-container">
+    // On route changes: auto close the sidebar and fade the new page in
+    useEffect(() => {
+        if (firstRender.current) {
+            firstRender.current = false;
+            return;
+        }
+        $('.sidebar-visible').removeClass('sidebar-visible');
 
-                <Header />
+        const page = $(mainRef.current).children('section').first().addClass(animationName + '-enter');
+        const timer = setTimeout(() => page.removeClass(animationName + '-enter'), 500);
+        return () => clearTimeout(timer);
+    }, [location.pathname]);
 
-                <Sidebar />
-                <div className="sidebar-layout-obfuscator"></div>
+    return (
+        <div className="layout-container">
 
-                <ReactCSSTransitionGroup
-                  component="main"
-                  className="main-container"
-                  transitionName={animationName}
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
-                >
-                    {/* Page content */}
-                    {React.cloneElement(this.props.children, {
-                        key: this.props.location.pathname
-                    })}
+            <Header />
 
-                    {/* Page footer */}
-                    <footer>
-                        <span>2017 - Centric app.</span>
-                    </footer>
-                </ReactCSSTransitionGroup>
+            <Sidebar />
+            <div className="sidebar-layout-obfuscator"></div>
 
-                {/* Search template */}
-                <HeaderSearch/>
+            <main className="main-container" ref={mainRef}>
+                {/* Page content (keyed so every path mounts a fresh page) */}
+                <React.Fragment key={location.pathname}>
+                    {outlet}
+                </React.Fragment>
 
-                {/* Settings template */}
-                <Settings/>
+                {/* Page footer */}
+                <footer>
+                    <span>2017 - Centric app.</span>
+                </footer>
+            </main>
 
-                {/*> yield region="bodyChild" }*/}
+            {/* Search template */}
+            <HeaderSearch/>
 
-            </div>
-        );
-    }
+            {/* Settings template */}
+            <Settings/>
+
+            {/*> yield region="bodyChild" }*/}
+
+        </div>
+    );
 }
 
 export default Core;

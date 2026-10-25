@@ -1,13 +1,13 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
 import Dropzone from 'react-dropzone';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './Dropzone.scss';
 
 class DropzoneUpload extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
@@ -16,17 +16,24 @@ class DropzoneUpload extends React.Component {
         this.state = {
             files: []
         };
+        this.dropzone = React.createRef();
+    }
+
+    componentWillUnmount() {
+        this.state.files.forEach(file => URL.revokeObjectURL(file.preview));
     }
 
     onDrop (files) {
         // console.log(files);
+        // react-dropzone no longer adds a preview URL to each file
+        this.state.files.forEach(file => URL.revokeObjectURL(file.preview));
         this.setState({
-            files: files
+            files: files.map(file => Object.assign(file, { preview: URL.createObjectURL(file) }))
         });
     }
 
     onOpenClick () {
-        this.refs.dropzone.open();
+        this.dropzone.current.open();
     }
 
     createImageItem(file, index){
@@ -49,13 +56,18 @@ class DropzoneUpload extends React.Component {
                     <Row>
                         <Col md={3}>
                             <p><small>Click to open upload dialog.</small></p>
-                            <Button bsStyle="default" onClick={this.onOpenClick.bind(this)}>
+                            <Button variant="default" onClick={this.onOpenClick.bind(this)}>
                                 Open Dropzone
                             </Button>
                         </Col>
                         <Col md={9}>
-                            <Dropzone className="well p-lg" ref="dropzone" onDrop={this.onDrop.bind(this)} >
-                              <div>Try dropping some files here, or click to select files to upload.</div>
+                            <Dropzone ref={this.dropzone} onDrop={this.onDrop.bind(this)} >
+                              {({ getRootProps, getInputProps }) => (
+                                <div {...getRootProps({ className: 'well p-lg' })}>
+                                  <input {...getInputProps()} />
+                                  <div>Try dropping some files here, or click to select files to upload.</div>
+                                </div>
+                              )}
                             </Dropzone>
                         </Col>
                     </Row>

@@ -6,11 +6,8 @@ import EditorRun from './Editor.run';
 
 class Editor extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         EditorRun();
     }
 

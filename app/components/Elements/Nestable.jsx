@@ -6,11 +6,8 @@ import NestableRun from './Nestable.run';
 
 class Nestable extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         NestableRun();
     }
 

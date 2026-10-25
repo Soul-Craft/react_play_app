@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link, matchPath, useLocation } from 'react-router';
 
 import './Sidebar.scss';
 
@@ -7,10 +7,6 @@ import SidebarRun from './Sidebar.run';
 import {initSvgReplace} from '../Utils/Utils';
 
 class Sidebar extends React.Component {
-
-    constructor(props, context){
-        super(props, context);
-    }
 
     componentDidMount() {
         SidebarRun();
@@ -20,7 +16,7 @@ class Sidebar extends React.Component {
     routeActive(paths) {
         paths = Array.isArray(paths) ? paths : [paths];
         for (let p in paths) {
-            if (this.context.router.isActive(''+paths[p]) === true)
+            if (matchPath({ path: ('/' + paths[p]).replace(/^\/+/, '/'), end: false }, this.props.pathname))
                 return 'active';
         }
         return '';
@@ -41,14 +37,14 @@ class Sidebar extends React.Component {
                     <nav className="sidebar-nav">
                         <ul>
                             <li className={this.routeActive('/dashboard') ? 'active':''}>
-                                <Link to="dashboard" className="ripple">
+                                <Link to="/dashboard" className="ripple">
                                     <span className="pull-right nav-label"><span className="badge bg-success">2</span></span><span className="nav-icon">
                                     <img src="" data-svg-replace="img/icons/aperture.svg" alt="MenuItem" className="hidden" /></span>
                                     <span>Dashboard</span>
                                 </Link>
                             </li>
                             <li className={this.routeActive('/cards') ? 'active':''}>
-                                <Link to="cards" className="ripple">
+                                <Link to="/cards" className="ripple">
                                     <span className="pull-right nav-label"></span><span className="nav-icon">
                                     <img src="" data-svg-replace="img/icons/radio-waves.svg" alt="MenuItem" className="hidden" /></span>
                                     <span>Cards</span>
@@ -83,42 +79,42 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul className="sidebar-subnav">
                                     <li className={this.routeActive('forms/classic')} >
-                                        <Link to="forms/classic" className="ripple">
+                                        <Link to="/forms/classic" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Classic</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/validation')} >
-                                        <Link to="forms/validation" className="ripple">
+                                        <Link to="/forms/validation" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Validation</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/advanced')} >
-                                        <Link to="forms/advanced" className="ripple">
+                                        <Link to="/forms/advanced" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Advanced</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/material')} >
-                                        <Link to="forms/material" className="ripple">
+                                        <Link to="/forms/material" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Material</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/editor')} >
-                                        <Link to="forms/editor" className="ripple">
+                                        <Link to="/forms/editor" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Editors</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/dropzone')} >
-                                        <Link to="forms/dropzone" className="ripple">
+                                        <Link to="/forms/dropzone" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Dropzone</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/xeditable')} >
-                                        <Link to="forms/xeditable" className="ripple">
+                                        <Link to="/forms/xeditable" className="ripple">
                                             <span className="pull-right nav-label"></span><span>xEditable</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('forms/wizard')} >
-                                        <Link to="forms/wizard" className="ripple">
+                                        <Link to="/forms/wizard" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Wizard</span>
                                         </Link>
                                     </li>
@@ -132,17 +128,17 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="tables" className="sidebar-subnav">
                                     <li className={this.routeActive(['tables/tableclassic'])}>
-                                        <Link to="tables/tableclassic" className="ripple">
+                                        <Link to="/tables/tableclassic" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Classic</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive(['tables/datatable'])}>
-                                        <Link to="tables/datatable" className="ripple">
+                                        <Link to="/tables/datatable" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Datatable</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('tables/bootgrid')}>
-                                        <Link to="tables/bootgrid" className="ripple">
+                                        <Link to="/tables/bootgrid" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Bootgrid</span>
                                         </Link>
                                     </li>
@@ -156,27 +152,27 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="layouts" className="sidebar-subnav">
                                     <li className={this.routeActive('layouts/columns')}>
-                                        <Link to="layouts/columns" className="ripple">
+                                        <Link to="/layouts/columns" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Columns</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('layouts/overlap')}>
-                                        <Link to="layouts/overlap" className="ripple">
+                                        <Link to="/layouts/overlap" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Overlap</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('layouts/boxed')}>
-                                        <Link to="layouts/boxed" className="ripple">
+                                        <Link to="/layouts/boxed" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Boxed</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('layouts/tabs')}>
-                                        <Link to="layouts/tabs" className="ripple">
+                                        <Link to="/layouts/tabs" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Tabs</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('layouts/containers')}>
-                                        <Link to="layouts/containers" className="ripple">
+                                        <Link to="/layouts/containers" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Containers</span>
                                         </Link>
                                     </li>
@@ -195,54 +191,54 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="elements" className="sidebar-subnav">
                                     <li className={this.routeActive('elements/colors')}>
-                                        <Link to="elements/colors" className="ripple">
+                                        <Link to="/elements/colors" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Colors</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/whiteframes')}>
-                                        <Link to="elements/whiteframes" className="ripple">
+                                        <Link to="/elements/whiteframes" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Whiteframes</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/lists')}>
-                                        <Link to="elements/lists" className="ripple">
+                                        <Link to="/elements/lists" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Lists</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/bootstrap')}>
-                                        <Link to="elements/bootstrap" className="ripple">
+                                        <Link to="/elements/bootstrap" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Bootstrap</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/buttons')}>
-                                        <Link to="elements/buttons" className="ripple">
+                                        <Link to="/elements/buttons" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Buttons</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/sweetalert')}>
-                                        <Link to="elements/sweetalert"><span className="pull-right nav-label"></span><span>Sweet-alert</span></Link>
+                                        <Link to="/elements/sweetalert"><span className="pull-right nav-label"></span><span>Sweet-alert</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/spinners')}>
-                                        <Link to="elements/spinners" className="ripple">
+                                        <Link to="/elements/spinners" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Spinners</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/nestable')}>
-                                        <Link to="elements/nestable" className="ripple">
+                                        <Link to="/elements/nestable" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Nestable</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/grid')}>
-                                        <Link to="elements/grid" className="ripple">
+                                        <Link to="/elements/grid" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Grid</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/gridmasonry')}>
-                                        <Link to="elements/gridmasonry" className="ripple">
+                                        <Link to="/elements/gridmasonry" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Grid Masonry</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/typography')}>
-                                        <Link to="elements/typography" className="ripple">
+                                        <Link to="/elements/typography" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Typography</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/icons')}>
-                                        <Link to="elements/icons" className="ripple">
+                                        <Link to="/elements/icons" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Icons</span></Link>
                                     </li>
                                     <li className={this.routeActive('elements/utilities')}>
-                                        <Link to="elements/utilities" className="ripple">
+                                        <Link to="/elements/utilities" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Utilities</span></Link>
                                     </li>
                                 </ul>
@@ -260,22 +256,22 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="maps" className="sidebar-subnav">
                                     <li className={this.routeActive(['maps/googlefull'])}>
-                                        <Link to="maps/googlefull" className="ripple">
+                                        <Link to="/maps/googlefull" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Google Maps Full</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive(['maps/google'])}>
-                                        <Link to="maps/google" className="ripple">
+                                        <Link to="/maps/google" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Google Maps</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive(['maps/vector'])}>
-                                        <Link to="maps/vector" className="ripple">
+                                        <Link to="/maps/vector" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Vector Maps</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive(['maps/datamaps'])}>
-                                        <Link to="maps/datamaps" className="ripple">
+                                        <Link to="/maps/datamaps" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Datamaps</span>
                                         </Link>
                                     </li>
@@ -289,79 +285,79 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="pages" className="sidebar-subnav">
                                     <li className={this.routeActive('timeline')}>
-                                        <Link to="pages/timeline" className="ripple">
+                                        <Link to="/pages/timeline" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Timeline</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/invoice')}>
-                                        <Link to="pages/invoice" className="ripple">
+                                        <Link to="/pages/invoice" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Invoice</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/pricing')}>
-                                        <Link to="pages/pricing" className="ripple">
+                                        <Link to="/pages/pricing" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Pricing</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/contacts')}>
-                                        <Link to="pages/contacts" className="ripple">
+                                        <Link to="/pages/contacts" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Contacts</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/faq')}>
-                                        <Link to="pages/faq" className="ripple">
+                                        <Link to="/pages/faq" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>FAQ</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/projects')}>
-                                        <Link to="pages/projects" className="ripple">
+                                        <Link to="/pages/projects" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Projects</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/blog')}>
-                                        <Link to="pages/blog" className="ripple">
+                                        <Link to="/pages/blog" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Blog</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/blog-article')}>
-                                        <Link to="pages/blogarticle" className="ripple">
+                                        <Link to="/pages/blogarticle" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Article</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/profile')}>
-                                        <Link to="pages/profile" className="ripple">
+                                        <Link to="/pages/profile" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Profile</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/gallery')}>
-                                        <Link to="pages/gallery" className="ripple">
+                                        <Link to="/pages/gallery" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Gallery</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/wall')}>
-                                        <Link to="pages/wall" className="ripple">
+                                        <Link to="/pages/wall" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Wall</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/search')}>
-                                        <Link to="pages/search" className="ripple">
+                                        <Link to="/pages/search" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Search</span>
                                         </Link>
                                     </li>
                                     <li className={this.routeActive('pages/messages')}>
-                                        <Link to="pages/messages" className="ripple">
+                                        <Link to="/pages/messages" className="ripple">
                                             <span className="pull-right nav-label"></span>
                                             <span>Messages Board</span>
                                         </Link>
@@ -376,22 +372,22 @@ class Sidebar extends React.Component {
                                 </a>
                                 <ul id="user" className="sidebar-subnav">
                                     <li>
-                                        <Link to="login" className="ripple">
+                                        <Link to="/login" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Login</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="signup" className="ripple">
+                                        <Link to="/signup" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Signup</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="lock" className="ripple">
+                                        <Link to="/lock" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Lock</span>
                                         </Link>
                                     </li>
                                     <li>
-                                        <Link to="recover" className="ripple">
+                                        <Link to="/recover" className="ripple">
                                             <span className="pull-right nav-label"></span><span>Recover</span>
                                         </Link>
                                     </li>
@@ -405,8 +401,9 @@ class Sidebar extends React.Component {
     }
 }
 
-Sidebar.contextTypes = {
-    router: React.PropTypes.object
-};
+// react-router 3 gave the sidebar its router through legacy context; v8 has hooks instead
+function SidebarWithLocation() {
+    return <Sidebar pathname={useLocation().pathname} />;
+}
 
-export default Sidebar;
+export default SidebarWithLocation;

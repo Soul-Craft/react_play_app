@@ -1,18 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router';
 
 import LoginRun from './Login.run';
 
 class Login extends React.Component {
 
-    constructor(props, context){
-        super(props, context);
+    constructor(props){
+        super(props);
+        this.accountName = React.createRef();
+        this.accountPassword = React.createRef();
     }
 
     componentDidMount() {
         LoginRun((form) => {
-            console.log('Form submitted! [' + this.refs.accountName.value + ']');
-            this.context.router.push('/dashboard');
+            console.log('Form submitted! [' + this.accountName.current.value + ']');
+            this.props.navigate('/dashboard');
         });
     }
 
@@ -23,7 +25,7 @@ class Login extends React.Component {
                     <form id="user-login" action="" name="loginForm" noValidate className="card b0 form-validate">
                         <div className="card-offset pb0">
                             <div className="card-offset-item text-right">
-                                <Link to="signup" className="btn-raised btn btn-info btn-circle btn-lg">
+                                <Link to="/signup" className="btn-raised btn btn-info btn-circle btn-lg">
                                     <em className="ion-person-add"></em>
                                 </Link>
                             </div>
@@ -37,14 +39,14 @@ class Login extends React.Component {
                         <div className="card-body">
                             <div className="mda-form-group float-label mda-input-group">
                                 <div className="mda-form-control">
-                                    <input type="email" ref="accountName" name="accountName" required="" className="form-control" />
+                                    <input type="email" ref={this.accountName} name="accountName" required="" className="form-control" />
                                     <div className="mda-form-control-line"></div>
                                     <label>Email address</label>
                                 </div><span className="mda-input-group-addon"><em className="ion-ios-email-outline icon-lg"></em></span>
                             </div>
                             <div className="mda-form-group float-label mda-input-group">
                                 <div className="mda-form-control">
-                                    <input type="password" ref="accountPassword" name="accountPassword" required="" className="form-control" />
+                                    <input type="password" ref={this.accountPassword} name="accountPassword" required="" className="form-control" />
                                     <div className="mda-form-control-line"></div>
                                     <label>Password</label>
                                 </div><span className="mda-input-group-addon"><em className="ion-ios-locked-outline icon-lg"></em></span>
@@ -53,7 +55,7 @@ class Login extends React.Component {
                         <button type="submit" className="btn btn-primary btn-flat">Authenticate</button>
                     </form>
                     <div className="text-center text-sm">
-                        <Link to="recover" className="text-inherit">Forgot password?</Link>
+                        <Link to="/recover" className="text-inherit">Forgot password?</Link>
                     </div>
                 </div>
             </div>
@@ -61,8 +63,9 @@ class Login extends React.Component {
     }
 }
 
-Login.contextTypes = {
-    router: React.PropTypes.object
-};
+// react-router 3 gave the page its router through legacy context; v8 has hooks instead
+function LoginWithNavigate() {
+    return <Login navigate={useNavigate()} />;
+}
 
-export default Login;
+export default LoginWithNavigate;

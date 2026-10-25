@@ -3,7 +3,7 @@ import pubsub from 'pubsub-js';
 
 class LayoutsBoxed extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 

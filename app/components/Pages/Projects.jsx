@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button, ProgressBar, Label } from 'react-bootstrap';
+import { Container, Row, Col, Button, ProgressBar } from 'react-bootstrap';
 
 class Projects extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <Row className="mv">
                         <Col sm={4}>
                             <button type="button" className="btn btn-info"><em className="ion-plus mr-sm"></em>Add Project</button>
@@ -45,7 +45,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #A</div><small>Web development</small>
                                 </div>
@@ -87,7 +87,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>56%</small></p>
-                                    <ProgressBar now={56} bsStyle="info" className="progress-xs m0"/>
+                                    <ProgressBar now={56} variant="info" className="progress-xs m0"/>
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -97,7 +97,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #B</div><small>Web development</small>
                                 </div>
@@ -139,7 +139,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>56%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={56} bsStyle="danger" />
+                                    <ProgressBar className="progress-xs m0" now={56} variant="danger" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -149,7 +149,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="warning">paused</Label>
+                                        <span className="label label-warning">paused</span>
                                     </div>
                                     <div className="card-title">Project #C</div><small>Web development</small>
                                 </div>
@@ -191,7 +191,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>64%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={64} bsStyle="success" />
+                                    <ProgressBar className="progress-xs m0" now={64} variant="success" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -201,7 +201,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #D</div><small>Web development</small>
                                 </div>
@@ -243,7 +243,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>36%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={36} bsStyle="warning" />
+                                    <ProgressBar className="progress-xs m0" now={36} variant="warning" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -253,7 +253,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #A</div><small>Web development</small>
                                 </div>
@@ -295,7 +295,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>56%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={56} bsStyle="info" />
+                                    <ProgressBar className="progress-xs m0" now={56} variant="info" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -305,7 +305,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="success">completed</Label>
+                                        <span className="label label-success">completed</span>
                                     </div>
                                     <div className="card-title">Project #B</div><small>Web development</small>
                                 </div>
@@ -347,7 +347,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>100%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={100} bsStyle="success" />
+                                    <ProgressBar className="progress-xs m0" now={100} variant="success" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -357,7 +357,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="warning">paused</Label>
+                                        <span className="label label-warning">paused</span>
                                     </div>
                                     <div className="card-title">Project #C</div><small>Web development</small>
                                 </div>
@@ -399,7 +399,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>64%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={64} bsStyle="success" />
+                                    <ProgressBar className="progress-xs m0" now={64} variant="success" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -409,7 +409,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #D</div><small>Web development</small>
                                 </div>
@@ -451,7 +451,7 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>36%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={36} bsStyle="warning" />
+                                    <ProgressBar className="progress-xs m0" now={36} variant="warning" />
                                 </div>
                             </div>
                             {/* end Project card */}
@@ -461,7 +461,7 @@ class Projects extends React.Component {
                             <div className="card">
                                 <div className="card-heading">
                                     <div className="pull-right">
-                                        <Label bsStyle="info">active</Label>
+                                        <span className="label label-info">active</span>
                                     </div>
                                     <div className="card-title">Project #A</div><small>Web development</small>
                                 </div>
@@ -503,13 +503,13 @@ class Projects extends React.Component {
                                 </div>
                                 <div className="card-footer">
                                     <p><small>56%</small></p>
-                                    <ProgressBar className="progress-xs m0" now={56} bsStyle="info" />
+                                    <ProgressBar className="progress-xs m0" now={56} variant="info" />
                                 </div>
                             </div>
                             {/* end Project card */}
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

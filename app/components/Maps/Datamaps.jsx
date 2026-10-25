@@ -1,16 +1,13 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import DatamapsRun from './Datamaps.run';
 
 class Datamaps extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         DatamapsRun();
     }
 
@@ -21,7 +18,7 @@ class Datamaps extends React.Component {
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <div className="panel panel-default">
                       <div className="panel-heading">Basic Map</div>
                       <div className="panel-body">
@@ -34,7 +31,7 @@ class Datamaps extends React.Component {
                         <div id="datamap-arc"></div>
                       </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         )
     }

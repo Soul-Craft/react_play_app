@@ -1,7 +1,7 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Dropdown, MenuItem } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Dropdown } from 'react-bootstrap';
+import { Link } from 'react-router';
 
 import './Header.scss';
 import './HeaderMenuLinks.scss';
@@ -15,7 +15,7 @@ class Header extends React.Component {
         };
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.pubsub_token = pubsub.subscribe('setPageTitle', (ev, title) => {
             this.setState({pageTitle: title});
         });
@@ -55,25 +55,19 @@ class Header extends React.Component {
                                 <em className="ion-ios-search-strong"></em>
                             </a>
                         </li>
-                        <Dropdown id="basic-nav-dropdown" pullRight componentClass="li">
-                            <Dropdown.Toggle useAnchor noCaret className="has-badge ripple">
+                        <Dropdown id="basic-nav-dropdown" align="end" as="li">
+                            <Dropdown.Toggle as="a" href="#" className="no-caret has-badge ripple">
                               <em className="ion-person"></em>
                               <sup className="badge bg-danger">3</sup>
                             </Dropdown.Toggle>
                             <Dropdown.Menu className="md-dropdown-menu" >
-                                <LinkContainer to="pages/profile">
-                                    <MenuItem eventKey={3.1}>
-                                        <em className="ion-home icon-fw"></em>
-                                        Profile
-                                    </MenuItem>
-                                </LinkContainer>
-                                <LinkContainer to="pages/messages">
-                                    <MenuItem eventKey={3.2}><em className="ion-gear-a icon-fw"></em>Messages</MenuItem>
-                                </LinkContainer>
-                                <MenuItem divider />
-                                <LinkContainer to="/login">
-                                    <MenuItem eventKey={3.3}><em className="ion-log-out icon-fw"></em>Logout</MenuItem>
-                                </LinkContainer>
+                                <Dropdown.Item as={Link} to="/pages/profile" eventKey={3.1}>
+                                    <em className="ion-home icon-fw"></em>
+                                    Profile
+                                </Dropdown.Item>
+                                <Dropdown.Item as={Link} to="/pages/messages" eventKey={3.2}><em className="ion-gear-a icon-fw"></em>Messages</Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Item as={Link} to="/login" eventKey={3.3}><em className="ion-log-out icon-fw"></em>Logout</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>
                         <li>

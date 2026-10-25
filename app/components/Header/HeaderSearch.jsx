@@ -9,9 +9,10 @@ class HeaderSearch extends React.Component {
         this.state = {
             showModal: false
         };
+        this.searchTerm = React.createRef();
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.pubsub_token = pubsub.subscribe('showsearch', () => {
             this.open();
         });
@@ -46,7 +47,7 @@ class HeaderSearch extends React.Component {
 
     onSubmit(e) {
         e.preventDefault();
-        console.log('Search form submitted: [' + this.refs.searchTerm.value + ']');
+        console.log('Search form submitted: [' + this.searchTerm.current.value + ']');
     }
 
     render() {
@@ -55,14 +56,14 @@ class HeaderSearch extends React.Component {
                 onEnter={this.onShowModal.bind(this)} onExited={this.onHiddenModal.bind(this)} onEntered={this.onShownModal.bind(this)}>
                 <Modal.Body>
                     <div className="pull-left">
-                        <button type="button" data-dismiss="modal" className="btn btn-flat"><em className="ion-arrow-left-c icon-24"></em></button>
+                        <button type="button" onClick={this.close.bind(this)} className="btn btn-flat"><em className="ion-arrow-left-c icon-24"></em></button>
                     </div>
                     <div className="pull-right">
                         <button type="button" className="btn btn-flat"><em className="ion-android-microphone icon-24"></em></button>
                     </div>
                     <form onSubmit={this.onSubmit.bind(this)} action="#" className="oh">
                         <div className="mda-form-control pt0">
-                            <input type="text" ref="searchTerm" placeholder="Search.." className="form-control header-input-search" />
+                            <input type="text" ref={this.searchTerm} placeholder="Search.." className="form-control header-input-search" />
                             <div className="mda-form-control-line"></div>
                         </div>
                     </form>

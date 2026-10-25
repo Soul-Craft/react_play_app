@@ -17,17 +17,17 @@ function runSweetAlert() {
 
     $('#swal-demo4').on('click', function(e) {
         e.preventDefault();
+        // SweetAlert 2 returns a promise instead of taking a callback
         swal({
                 title: 'Are you sure?',
                 text: 'You will not be able to recover this imaginary file!',
-                type: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#DD6B55',
-                confirmButtonText: 'Yes, delete it!',
-                closeOnConfirm: false
-            },
-            function() {
-                swal('Deleted!', 'Your imaginary file has been deleted.', 'success');
+                icon: 'warning',
+                buttons: [true, 'Yes, delete it!'],
+                dangerMode: true
+            })
+            .then(function(isConfirm) {
+                if (isConfirm)
+                    swal('Deleted!', 'Your imaginary file has been deleted.', 'success');
             });
 
     });
@@ -37,14 +37,11 @@ function runSweetAlert() {
         swal({
             title: 'Are you sure?',
             text: 'You will not be able to recover this imaginary file!',
-            type: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#DD6B55',
-            confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel plx!',
-            closeOnConfirm: false,
-            closeOnCancel: false
-        }, function(isConfirm) {
+            icon: 'warning',
+            buttons: ['No, cancel plx!', 'Yes, delete it!'],
+            dangerMode: true,
+            closeOnClickOutside: false
+        }).then(function(isConfirm) {
             if (isConfirm) {
                 swal('Deleted!', 'Your imaginary file has been deleted.', 'success');
             } else {

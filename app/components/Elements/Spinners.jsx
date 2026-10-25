@@ -3,17 +3,11 @@ import pubsub from 'pubsub-js';
 
 class Spinners extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
 
-        // Require here makes possible to run the js when the
-        // markup is ready. Otherwise standard jQuery.ready won't work
-
-        // Loaders.CSS
-        require('../../../bower_components/loaders.css/loaders.css.js');
+        // Loaders.CSS (fill the loaders now that the markup is ready)
+        $('.loader-inner').loaders();
 
     }
 

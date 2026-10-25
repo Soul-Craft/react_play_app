@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Blog extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid className="bg-full bg-pic1">
+                <Container fluid className="bg-full bg-pic1">
                     <div className="container container-md">
                         <Row>
                             <Col md={8}>
@@ -110,7 +110,7 @@ class Blog extends React.Component {
                             </div>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }
