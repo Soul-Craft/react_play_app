@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class BlogArticle extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid className="bg-full bg-pic1">
+                <Container fluid className="bg-full bg-pic1">
                     <div className="container container-md">
                         <div className="card animated fadeInUp b0">
                             <div className="card-item card-media bg-pic4">
@@ -99,7 +99,7 @@ class BlogArticle extends React.Component {
                             <h5 className="pull-right"><span className="mr text-white">Newer</span><a href="#" className="btn btn-circle btn-default"><em className="ion-ios-arrow-thin-right icon-2x"></em></a></h5>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

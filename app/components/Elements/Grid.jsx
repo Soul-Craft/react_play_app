@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class BsGrid extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     {/* START row */}
                     <Row>
                         <Col lg={12}>
@@ -200,20 +200,20 @@ class BsGrid extends React.Component {
                                         <Col md={4}>
                                             <div className="box-placeholder">.col-md-4</div>
                                         </Col>
-                                        <Col md={4} mdOffset={4}>
+                                        <Col md={{ span: 4, offset: 4 }}>
                                             <div className="box-placeholder">.col-md-4 .col-md-offset-4</div>
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col md={3} mdOffset={3}>
+                                        <Col md={{ span: 3, offset: 3 }}>
                                             <div className="box-placeholder">.col-md-3 .col-md-offset-3</div>
                                         </Col>
-                                        <Col md={3} mdOffset={3}>
+                                        <Col md={{ span: 3, offset: 3 }}>
                                             <div className="box-placeholder">.col-md-3 .col-md-offset-3</div>
                                         </Col>
                                     </Row>
                                     <Row>
-                                        <Col md={6} mdOffset={3}>
+                                        <Col md={{ span: 6, offset: 3 }}>
                                             <div className="box-placeholder">.col-md-6 .col-md-offset-3</div>
                                         </Col>
                                     </Row>
@@ -256,10 +256,10 @@ class BsGrid extends React.Component {
                                     <h3 id="grid-column-ordering">Column ordering</h3>
                                     <p>Easily change the order of our built-in grid columns with<code>.col-md-push-*</code>and<code>.col-md-pull-*</code>modifier classes.</p>
                                     <Row>
-                                        <Col md={9} mdPush={3}>
+                                        <Col md={{ span: 9, order: 2 }}>
                                             <div className="box-placeholder">.col-md-9 .col-md-push-3</div>
                                         </Col>
-                                        <Col md={3} mdPull={9}>
+                                        <Col md={{ span: 3, order: 1 }}>
                                             <div className="box-placeholder">.col-md-3 .col-md-pull-9</div>
                                         </Col>
                                     </Row>
@@ -268,7 +268,7 @@ class BsGrid extends React.Component {
                         </Col>
                     </Row>
                     {/* END row */}
-                </Grid>
+                </Container>
             </section>
         );
     }

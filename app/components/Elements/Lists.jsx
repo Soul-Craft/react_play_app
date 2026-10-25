@@ -1,19 +1,19 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './List.scss';
 
 class Lists extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid className="container-lg">
+                <Container className="container-lg">
                     <Row>
                         <Col md={6}>
                             <div className="card">
@@ -159,7 +159,7 @@ class Lists extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

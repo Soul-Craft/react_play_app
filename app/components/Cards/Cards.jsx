@@ -1,24 +1,21 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Dropdown, MenuItem } from 'react-bootstrap';
+import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 
 import './Cards.scss';
 import RippleRun from '../Ripple/Ripple.run';
 
 class Cards extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         RippleRun();
     }
 
     render() {
         return (
             <section>
-                <Grid className="container-lg">
+                <Container className="container-lg">
                     <Row>
                         <Col lg={8} xs={12}>
                             <Row>
@@ -27,14 +24,14 @@ class Cards extends React.Component {
                                         <div className="card-heading bg-pink-500">
                                             {/* START dropdown */}
                                             <div className="pull-right">
-                                                <Dropdown pullRight id="dd2">
-                                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                                <Dropdown align="end" id="dd2">
+                                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                       <em className="ion-android-more-vertical"></em>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                                        <MenuItem eventKey="1">Option 1</MenuItem>
-                                                        <MenuItem eventKey="2">Option 2</MenuItem>
-                                                        <MenuItem eventKey="3">Option 3</MenuItem>
+                                                        <Dropdown.Item eventKey="1">Option 1</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Option 2</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="3">Option 3</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
@@ -208,14 +205,14 @@ class Cards extends React.Component {
                         <div className="card-body ">
                             {/* START dropdown */}
                             <div className="pull-right">
-                                <Dropdown pullRight id="dd1">
-                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                <Dropdown align="end" id="dd1">
+                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                       <em className="ion-android-more-vertical"></em>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                        <MenuItem eventKey="1">Option 1</MenuItem>
-                                        <MenuItem eventKey="2">Option 2</MenuItem>
-                                        <MenuItem eventKey="3">Option 3</MenuItem>
+                                        <Dropdown.Item eventKey="1">Option 1</Dropdown.Item>
+                                        <Dropdown.Item eventKey="2">Option 2</Dropdown.Item>
+                                        <Dropdown.Item eventKey="3">Option 3</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>
@@ -281,7 +278,7 @@ class Cards extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

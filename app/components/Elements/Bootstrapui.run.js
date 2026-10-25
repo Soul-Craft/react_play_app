@@ -3,12 +3,12 @@ function runBootstrap() {
     // POPOVER
     // -----------------------------------
 
-    $('[data-toggle="popover"]').popover();
+    $('[data-bs-toggle="popover"]').popover();
 
     // TOOLTIP
     // -----------------------------------
 
-    $('[data-toggle="tooltip"]').tooltip({
+    $('[data-bs-toggle="tooltip"]').tooltip({
         container: 'body'
     });
 

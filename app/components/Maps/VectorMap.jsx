@@ -1,24 +1,21 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './VectorMap.scss';
 import VectorMapRun from './VectorMap.run';
 
 class VectorMap extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         VectorMapRun();
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <div className="card">
                         <div className="card-heading">
                             <div className="pull-right"><span className="mr text-muted">Show last year events</span>
@@ -40,7 +37,7 @@ class VectorMap extends React.Component {
                             <div id="vector-map-usa" style={{height:'240px'}} className="vector-map"></div>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

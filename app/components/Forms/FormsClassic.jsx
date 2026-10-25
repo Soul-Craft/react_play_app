@@ -3,7 +3,7 @@ import pubsub from 'pubsub-js';
 
 class FormsClassic extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
@@ -354,7 +354,7 @@ class FormsClassic extends React.Component {
                                         <div className="col-sm-10">
                                             <div className="input-group">
                                                 <div className="input-group-btn">
-                                                    <button type="button" data-toggle="dropdown" className="btn btn-default">Action<span className="caret"></span></button>
+                                                    <button type="button" data-bs-toggle="dropdown" className="btn btn-default">Action<span className="caret"></span></button>
                                                     <ul className="dropdown-menu">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>
@@ -368,7 +368,7 @@ class FormsClassic extends React.Component {
                                             <div className="input-group">
                                                 <input type="text" className="form-control"/>
                                                 <div className="input-group-btn">
-                                                    <button type="button" data-toggle="dropdown" className="btn btn-default">Action<span className="caret"></span></button>
+                                                    <button type="button" data-bs-toggle="dropdown" className="btn btn-default">Action<span className="caret"></span></button>
                                                     <ul className="dropdown-menu pull-right">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>
@@ -388,7 +388,7 @@ class FormsClassic extends React.Component {
                                             <div className="input-group">
                                                 <div className="input-group-btn">
                                                     <button type="button" tabIndex="-1" className="btn btn-default">Action</button>
-                                                    <button type="button" data-toggle="dropdown" className="btn btn-default"><span className="caret"></span></button>
+                                                    <button type="button" data-bs-toggle="dropdown" className="btn btn-default"><span className="caret"></span></button>
                                                     <ul className="dropdown-menu">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>
@@ -403,7 +403,7 @@ class FormsClassic extends React.Component {
                                                 <input type="text" className="form-control"/>
                                                 <div className="input-group-btn">
                                                     <button type="button" tabIndex="-1" className="btn btn-default">Action</button>
-                                                    <button type="button" data-toggle="dropdown" className="btn btn-default"><span className="caret"></span></button>
+                                                    <button type="button" data-bs-toggle="dropdown" className="btn btn-default"><span className="caret"></span></button>
                                                     <ul className="dropdown-menu pull-right">
                                                         <li><a href="#">Action</a></li>
                                                         <li><a href="#">Another action</a></li>

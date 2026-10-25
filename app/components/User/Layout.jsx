@@ -1,19 +1,15 @@
 import React from 'react';
+import { Outlet } from 'react-router';
 
-class Layout extends React.Component {
-
-    render() {
-        return (
-            <div className="layout-container">
-                <div className="page-container bg-blue-grey-900">
-                    {/* Page content */}
-                    {React.cloneElement(this.props.children, {
-                        key: Math.random()
-                    })}
-                </div>
+function Layout() {
+    return (
+        <div className="layout-container">
+            <div className="page-container bg-blue-grey-900">
+                {/* Page content */}
+                <Outlet />
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Layout;

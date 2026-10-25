@@ -1,17 +1,14 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Dropdown, MenuItem } from 'react-bootstrap';
+import { Container, Row, Col, Dropdown } from 'react-bootstrap';
 
 import DashboardRun from './Dashboard.run';
 import RippleRun from '../Ripple/Ripple.run';
 
 class Dashboard extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         DashboardRun();
         RippleRun();
     }
@@ -31,7 +28,7 @@ class Dashboard extends React.Component {
                         </Col>
                     </Row>
                 </div>
-                <Grid fluid>
+                <Container fluid>
                     <Row>
                         <Col xs={6} lg={3}>
                             <div className="card">
@@ -98,14 +95,14 @@ class Dashboard extends React.Component {
                                         <div className="card-heading">
                                             {/* START dropdown */}
                                             <div className="pull-right">
-                                                <Dropdown pullRight id="dd1">
-                                                    <Dropdown.Toggle bsStyle="default" noCaret className="btn btn-flat btn-flat-icon ripple">
+                                                <Dropdown align="end" id="dd1">
+                                                    <Dropdown.Toggle variant="default" className="no-caret btn btn-flat btn-flat-icon ripple">
                                                       <em className="ion-android-more-vertical"></em>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                                        <MenuItem eventKey="1">Last 30 days</MenuItem>
-                                                        <MenuItem eventKey="2">Last week</MenuItem>
-                                                        <MenuItem eventKey="3">Last year</MenuItem>
+                                                        <Dropdown.Item eventKey="1">Last 30 days</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Last week</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="3">Last year</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
@@ -211,14 +208,14 @@ class Dashboard extends React.Component {
                                 <div className="card-heading">
                                     {/* START dropdown */}
                                     <div className="pull-right">
-                                        <Dropdown pullRight id="dd2">
-                                            <Dropdown.Toggle bsStyle="default" noCaret className="btn btn-flat btn-flat-icon ripple">
+                                        <Dropdown align="end" id="dd2">
+                                            <Dropdown.Toggle variant="default" className="no-caret btn btn-flat btn-flat-icon ripple">
                                               <em className="ion-android-more-vertical"></em>
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu className="md-dropdown-menu" >
-                                                <MenuItem eventKey="1">Last 30 days</MenuItem>
-                                                <MenuItem eventKey="2">Last week</MenuItem>
-                                                <MenuItem eventKey="3">Last year</MenuItem>
+                                                <Dropdown.Item eventKey="1">Last 30 days</Dropdown.Item>
+                                                <Dropdown.Item eventKey="2">Last week</Dropdown.Item>
+                                                <Dropdown.Item eventKey="3">Last year</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </div>
@@ -327,7 +324,7 @@ class Dashboard extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

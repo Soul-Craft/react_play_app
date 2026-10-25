@@ -1,10 +1,10 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button, Dropdown, MenuItem } from 'react-bootstrap';
+import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
 
 class Wall extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
@@ -43,15 +43,15 @@ class Wall extends React.Component {
                                         <div className="card-heading">
                                             {/* START dropdown */}
                                             <div className="pull-right">
-                                                <Dropdown pullRight id="dd1">
-                                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                                <Dropdown align="end" id="dd1">
+                                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                       <em className="ion-android-more-vertical"></em>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                                        <MenuItem eventKey="1">Hide post</MenuItem>
-                                                        <MenuItem eventKey="2">Stop following</MenuItem>
-                                                        <MenuItem divider/>
-                                                        <MenuItem eventKey="3">Report</MenuItem>
+                                                        <Dropdown.Item eventKey="1">Hide post</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Stop following</Dropdown.Item>
+                                                        <Dropdown.Divider />
+                                                        <Dropdown.Item eventKey="3">Report</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
@@ -77,15 +77,15 @@ class Wall extends React.Component {
                                         <div className="card-heading">
                                             {/* START dropdown */}
                                             <div className="pull-right">
-                                                <Dropdown pullRight id="dd2">
-                                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                                <Dropdown align="end" id="dd2">
+                                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                       <em className="ion-android-more-vertical"></em>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                                        <MenuItem eventKey="1">Hide post</MenuItem>
-                                                        <MenuItem eventKey="2">Stop following</MenuItem>
-                                                        <MenuItem divider/>
-                                                        <MenuItem eventKey="3">Report</MenuItem>
+                                                        <Dropdown.Item eventKey="1">Hide post</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Stop following</Dropdown.Item>
+                                                        <Dropdown.Divider />
+                                                        <Dropdown.Item eventKey="3">Report</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>
@@ -115,15 +115,15 @@ class Wall extends React.Component {
                                         <div className="card-heading">
                                             {/* START dropdown */}
                                             <div className="pull-right">
-                                                <Dropdown pullRight id="dd3">
-                                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                                <Dropdown align="end" id="dd3">
+                                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                       <em className="ion-android-more-vertical"></em>
                                                     </Dropdown.Toggle>
                                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                                        <MenuItem eventKey="1">Hide post</MenuItem>
-                                                        <MenuItem eventKey="2">Stop following</MenuItem>
-                                                        <MenuItem divider/>
-                                                        <MenuItem eventKey="3">Report</MenuItem>
+                                                        <Dropdown.Item eventKey="1">Hide post</Dropdown.Item>
+                                                        <Dropdown.Item eventKey="2">Stop following</Dropdown.Item>
+                                                        <Dropdown.Divider />
+                                                        <Dropdown.Item eventKey="3">Report</Dropdown.Item>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                             </div>

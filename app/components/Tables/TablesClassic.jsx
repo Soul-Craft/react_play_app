@@ -1,10 +1,10 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button, Table } from 'react-bootstrap';
+import { Container, Row, Col, Button, Table } from 'react-bootstrap';
 
 class TablesClassic extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 

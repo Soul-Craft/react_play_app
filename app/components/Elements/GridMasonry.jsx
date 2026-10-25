@@ -6,11 +6,8 @@ import GridMasonryRun from './GridMasonry.run';
 
 class GridMasonry extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         GridMasonryRun();
     }
 

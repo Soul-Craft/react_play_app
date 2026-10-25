@@ -1,16 +1,13 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button, Dropdown, MenuItem } from 'react-bootstrap';
+import { Container, Row, Col, Button, Dropdown } from 'react-bootstrap';
 
 import ProfileRun from './Profile.run';
 
 class Profile extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         ProfileRun();
     }
 
@@ -25,7 +22,7 @@ class Profile extends React.Component {
                         </div>
                     </div>
                 </div>
-                <Grid fluid>
+                <Container fluid>
                     <Row>
                         {/* Left column */}
                         <Col md={7} lg={8}>
@@ -33,13 +30,13 @@ class Profile extends React.Component {
                                 <h5 className="card-heading pb0">
                                     {/* START dropdown */}
                                     <div className="pull-right">
-                                        <Dropdown pullRight id="dd1">
-                                            <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                        <Dropdown align="end" id="dd1">
+                                            <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                               <em className="ion-android-more-vertical"></em>
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu className="md-dropdown-menu" >
-                                                <MenuItem eventKey="1">Action 1</MenuItem>
-                                                <MenuItem eventKey="2">Action 2</MenuItem>
+                                                <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+                                                <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </div>
@@ -132,13 +129,13 @@ class Profile extends React.Component {
                                 <h5 className="card-heading">
                                     {/* START dropdown */}
                                     <div className="pull-right">
-                                        <Dropdown pullRight id="dd2">
-                                            <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                        <Dropdown align="end" id="dd2">
+                                            <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                               <em className="ion-android-more-vertical"></em>
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu className="md-dropdown-menu" >
-                                                <MenuItem eventKey="1">Action 1</MenuItem>
-                                                <MenuItem eventKey="2">Action 2</MenuItem>
+                                                <Dropdown.Item eventKey="1">Action 1</Dropdown.Item>
+                                                <Dropdown.Item eventKey="2">Action 2</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
                                     </div>
@@ -226,7 +223,7 @@ class Profile extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

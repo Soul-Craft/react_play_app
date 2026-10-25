@@ -1,19 +1,19 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './Timeline.scss';
 
 class Timeline extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid className="container-md">
+                <Container className="container-md">
                     {/* START timeline */}
                     <ul className="timeline-alt">
                         <li data-datetime="Now" className="timeline-separator"></li>
@@ -104,7 +104,7 @@ class Timeline extends React.Component {
                         {/* END timeline item */}
                     </ul>
                     {/* END timeline */}
-                </Grid>
+                </Container>
             </section>
         );
     }

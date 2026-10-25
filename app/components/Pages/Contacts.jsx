@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Contacts extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <div className="mb-lg text-right">
                         <button type="button" className="btn btn-info"><em className="ion-plus mr-sm"></em>Add Contact</button>
                     </div>
@@ -28,8 +28,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -57,8 +57,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -86,8 +86,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -115,8 +115,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -144,8 +144,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -173,8 +173,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -202,8 +202,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -231,8 +231,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -260,8 +260,8 @@ class Contacts extends React.Component {
                                 <div className="card-body">
                                     {/* START dropdown */}
                                     <div className="pull-right dropdown visible-lg visible-md">
-                                        <button type="button" data-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
-                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right">
+                                        <button type="button" data-bs-toggle="dropdown" className="btn btn-flat btn-flat-icon"><em className="ion-android-more-vertical"></em></button>
+                                        <ul role="menu" className="dropdown-menu md-dropdown-menu dropdown-menu-right dropdown-menu-end">
                                             <li><a href="">Edit</a></li>
                                             <li><a href="">Block</a></li>
                                             <li><a href="">Delete</a></li>
@@ -285,7 +285,7 @@ class Contacts extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
             </section>
         );
     }

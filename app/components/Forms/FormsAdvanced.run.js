@@ -1,9 +1,11 @@
+import Coloris from '@melloware/coloris';
+import '@melloware/coloris/dist/coloris.css';
+
 function formAdvanced() {
 
     if ( !$.fn.select2 ||
          !$.fn.datepicker ||
-         !$.fn.clockpicker ||
-         !$.fn.colorpicker ) return;
+         !$.fn.clockpicker ) return;
 
     // Select 2
 
@@ -36,35 +38,17 @@ function formAdvanced() {
         cpInput.clockpicker('hide');
     });
 
-    // Colorpicker
+    // Colorpicker (Coloris; bootstrap-colorpicker is unmaintained and breaks on Bootstrap 5.3)
 
-    $('#cp-demo-basic').colorpicker({
-        customClass: 'colorpicker-2x',
-        sliders: {
-            saturation: {
-                maxLeft: 200,
-                maxTop: 200
-            },
-            hue: {
-                maxTop: 200
-            },
-            alpha: {
-                maxTop: 200
-            }
-        }
+    Coloris.init();
+    Coloris({
+        el: '#cp-demo-basic, #cp-demo-hex, #cp-demo-component input, #cp-demo-bootstrap',
+        alpha: false
     });
-    $('#cp-demo-component').colorpicker();
-    $('#cp-demo-hex').colorpicker();
-
-    $('#cp-demo-bootstrap').colorpicker({
-        colorSelectors: {
-            'default': '#777777',
-            'primary': '#337ab7',
-            'success': '#5cb85c',
-            'info': '#5bc0de',
-            'warning': '#f0ad4e',
-            'danger': '#d9534f'
-        }
+    Coloris.setInstance('#cp-demo-hex', { format: 'hex' });
+    Coloris.setInstance('#cp-demo-bootstrap', {
+        format: 'hex',
+        swatches: ['#777777', '#337ab7', '#5cb85c', '#5bc0de', '#f0ad4e', '#d9534f']
     });
 
 }

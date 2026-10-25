@@ -10,16 +10,16 @@ function tableDatatables() {
         'info': true, // Bottom left status text
         // Text translation options
         // Note the required keywords between underscores (e.g _MENU_)
-        oLanguage: {
-            sSearch: '<em class="ion-search"></em>',
-            sLengthMenu: '_MENU_ records per page',
+        language: {
+            search: '<em class="ion-search"></em>',
+            lengthMenu: '_MENU_ records per page',
             info: 'Showing page _PAGE_ of _PAGES_',
             zeroRecords: 'Nothing found - sorry',
             infoEmpty: 'No records available',
             infoFiltered: '(filtered from _MAX_ total records)',
-            oPaginate: {
-                sNext: '<em class="ion-ios-arrow-right"></em>',
-                sPrevious: '<em class="ion-ios-arrow-left"></em>'
+            paginate: {
+                next: '<em class="ion-ios-arrow-right"></em>',
+                previous: '<em class="ion-ios-arrow-left"></em>'
             }
         }
     });
@@ -27,22 +27,22 @@ function tableDatatables() {
 
     // Filter
 
-    var dtInstance2 = $('#datatable2').dataTable({
+    var dtInstance2 = $('#datatable2').DataTable({
         'paging': true, // Table pagination
         'ordering': true, // Column ordering
         'info': true, // Bottom left status text
         // Text translation options
         // Note the required keywords between underscores (e.g _MENU_)
-        oLanguage: {
-            sSearch: '<em class="ion-search"></em>',
-            sLengthMenu: '_MENU_ records per page',
+        language: {
+            search: '<em class="ion-search"></em>',
+            lengthMenu: '_MENU_ records per page',
             info: 'Showing page _PAGE_ of _PAGES_',
             zeroRecords: 'Nothing found - sorry',
             infoEmpty: 'No records available',
             infoFiltered: '(filtered from _MAX_ total records)',
-            oPaginate: {
-                sNext: '<em class="ion-ios-arrow-right"></em>',
-                sPrevious: '<em class="ion-ios-arrow-left"></em>'
+            paginate: {
+                next: '<em class="ion-ios-arrow-right"></em>',
+                previous: '<em class="ion-ios-arrow-left"></em>'
             }
         }
     });
@@ -52,7 +52,7 @@ function tableDatatables() {
     // On input keyup trigger filtering
     columnInputs
         .keyup(function() {
-            dtInstance2.fnFilter(this.value, columnInputs.index(this));
+            dtInstance2.column(columnInputs.index(this)).search(this.value).draw();
         });
 
 }

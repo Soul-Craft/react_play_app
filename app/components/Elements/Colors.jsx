@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Colors extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid className="container-lg">
+                <Container className="container-lg">
                     <div className="card">
                       <div className="card-heading">
                         <div className="card-title">Material Design Color Palette</div>
@@ -382,7 +382,7 @@ class Colors extends React.Component {
                         </Row>
                       </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

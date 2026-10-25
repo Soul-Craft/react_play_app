@@ -6,11 +6,8 @@ import XEditableRun from './XEditable.run';
 
 class XEditable extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         XEditableRun();
     }
 

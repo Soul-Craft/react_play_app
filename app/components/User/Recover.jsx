@@ -24,7 +24,7 @@ class Recover extends React.Component {
                             <p>Please check your inbox and follow instructions to reset your password.</p>
                         </div>
                         <div className="card-footer text-right">
-                            <Link to="login" className="btn btn-success btn-flat text-white">
+                            <Link to="/login" className="btn btn-success btn-flat text-white">
                                 Login
                                 <em className="ion-ios-arrow-thin-right icon-fw"></em>
                             </Link>

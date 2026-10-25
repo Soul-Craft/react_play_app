@@ -2,130 +2,135 @@
 // Vendor styles
 // -----------------------
 
-    // Animate.CSS
-    import '../bower_components/animate.css/animate.css';
-    // Bootstrap
-    import '../bower_components/bootstrap/dist/css/bootstrap.min.css';
-    // Ionicons
-    import '../bower_components/ionicons/css/ionicons.css';
+    // Animate.CSS (compat build keeps the unprefixed class names)
+    import 'animate.css/animate.compat.css';
+    // Bootstrap (plus the Bootstrap 3 classes the theme's markup still uses)
+    import 'bootstrap/dist/css/bootstrap.min.css';
+    import './components/Bootstrap/Bootstrap3Compat.scss';
+    // Ionicons (v2 icon font, kept with the theme's fonts in public/fonts)
+    import './vendor/ionicons.css';
     // Bluimp Gallery
-    import '../bower_components/blueimp-gallery/css/blueimp-gallery.css';
-    import '../bower_components/blueimp-gallery/css/blueimp-gallery-indicator.css';
-    import '../bower_components/blueimp-gallery/css/blueimp-gallery-video.css';
+    import 'blueimp-gallery/css/blueimp-gallery.css';
+    import 'blueimp-gallery/css/blueimp-gallery-indicator.css';
+    import 'blueimp-gallery/css/blueimp-gallery-video.css';
     // Datepicker
-    import '../bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
+    import 'bootstrap-datepicker/dist/css/bootstrap-datepicker3.css';
     // Rickshaw
-    import '../bower_components/rickshaw/rickshaw.css';
-    window.Rickshaw = require('../bower_components/rickshaw/rickshaw.js');
+    import 'rickshaw/rickshaw.css';
+    import Rickshaw from 'rickshaw';
+    window.Rickshaw = Rickshaw;
     // Select2
-    import '../bower_components/select2/dist/css/select2.css';
+    import 'select2/dist/css/select2.css';
     // Clockpicker
-    import '../bower_components/clockpicker/dist/bootstrap-clockpicker.css';
+    import 'clockpicker/dist/bootstrap-clockpicker.css';
     // Range Slider
-    import '../bower_components/nouislider/distribute/nouislider.min.css';
-    // ColorPicker
-    import '../bower_components/mjolnic-bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css';
+    import 'nouislider/dist/nouislider.css';
     // Summernote
-    import '../node_modules/summernote-webpack-fix/dist/summernote.css';
-    // Dropzone
-    // import '../bower_components/dropzone/dist/basic.css';
-    // import '../bower_components/dropzone/dist/dropzone.css';
+    import 'summernote/dist/summernote-bs5.css';
     // Xeditable
-    import '../bower_components/x-editable/dist/bootstrap3-editable/css/bootstrap-editable.css';
+    import 'x-editable-bs5/dist/bootstrap5-editable/css/bootstrap-editable.css';
     // Bootgrid
-    import '../bower_components/jquery.bootgrid/dist/jquery.bootgrid.css';
+    import 'jquery-bootgrid/dist/jquery.bootgrid.css';
     // Datatables
-    import '../bower_components/datatables/media/css/jquery.dataTables.css';
-    // Sweet Alert
-    import '../bower_components/sweetalert/dist/sweetalert.css';
+    import 'datatables.net-bs5/css/dataTables.bootstrap5.css';
     // Loaders.CSS
-    import '../bower_components/loaders.css/loaders.css';
+    import 'loaders.css/loaders.css';
     // Material Floating Button
-    import '../bower_components/ng-material-floating-button/mfb/dist/mfb.css';
+    import 'ng-material-floating-button/mfb/dist/mfb.css';
     // Material Colors
-    import '../bower_components/material-colors/dist/colors.css';
+    import 'material-colors/dist/colors.css';
+    // jVector Maps
+    import 'jvectormap-next/jquery-jvectormap.css';
 
 // Vendor scripts
 // -----------------------
 
-    // Modernizr
-    import '../bower_components/modernizr/modernizr.custom.js';
-    // jQuery
-    import '../bower_components/jquery/dist/jquery.js';
-    // Bootstrap
-    import '../bower_components/bootstrap/dist/js/bootstrap.js';
-    // jQuery Browser
-    import '../bower_components/jquery.browser/dist/jquery.browser.js';
-    // Material Colors
-    // import '../bower_components/material-colors/dist/colors.js';
-    // Bootstrap Filestyle
-    import '../bower_components/bootstrap-filestyle/src/bootstrap-filestyle.js';
-    // Flot charts
-    import '../bower_components/flot/jquery.flot.js';
-    import '../bower_components/flot/jquery.flot.categories.js';
-    import '../bower_components/flot-spline/js/jquery.flot.spline.js';
-    import '../bower_components/flot.tooltip/js/jquery.flot.tooltip.js';
-    import '../bower_components/flot/jquery.flot.resize.js';
-    import '../bower_components/flot/jquery.flot.pie.js';
-    import '../bower_components/flot/jquery.flot.time.js';
-    import '../bower_components/sidebysideimproved/jquery.flot.orderBars.js';
+    // jQuery (global access for the plugins below)
+    import $ from './vendor/jquery';
+    // jQuery Migrate restores the APIs jQuery 4 removed, which the older plugins still call
+    // (its console warnings stay on in development, where they point at those calls)
+    import 'jquery-migrate';
+    $.migrateMute = import.meta.env.PROD;
+    // Bootstrap (global access for x-editable)
+    import './vendor/bootstrap';
+    // Flot charts (source files: the prebuilt dist bundle is not valid as an ES module)
+    import 'flot/source/jquery.colorhelpers.js';
+    import 'flot/source/jquery.canvaswrapper.js';
+    import 'flot/source/jquery.flot.js';
+    import 'flot/source/jquery.flot.saturated.js';
+    import 'flot/source/jquery.flot.browser.js';
+    import 'flot/source/jquery.flot.drawSeries.js';
+    import 'flot/source/jquery.flot.uiConstants.js';
+    import 'flot/source/jquery.flot.symbol.js';
+    import 'flot/source/jquery.flot.categories.js';
+    import 'flot/source/jquery.flot.hover.js';
+    import 'flot/source/jquery.flot.time.js';
+    import 'flot/source/jquery.flot.legend.js';
+    import 'flot/source/jquery.flot.resize.js';
+    import 'flot/source/jquery.flot.pie.js';
+    import 'flot-spline/js/jquery.flot.spline.js';
+    import 'jquery.flot.tooltip/js/jquery.flot.tooltip.js';
     // jVector Maps
-    import '../bower_components/ika.jvectormap/jquery-jvectormap-1.2.2.min.js';
-    import '../bower_components/ika.jvectormap/jquery-jvectormap-us-mill-en.js';
-    import '../bower_components/ika.jvectormap/jquery-jvectormap-world-mill-en.js';
+    import jvectormap from 'jvectormap-next';
+    import worldMill from 'jvectormap-content/world-mill';
+    import usMill from 'jvectormap-content/us-mill';
+    jvectormap($);
+    $.fn.vectorMap('addMap', 'world_mill_en', worldMill);
+    $.fn.vectorMap('addMap', 'us_mill_en', usMill);
     // Easypie Charts
-    import '../bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.js';
+    import 'easy-pie-chart/dist/jquery.easypiechart.js';
     // Images Loaded
-    var imagesLoaded = require('imagesloaded');
-    imagesLoaded.makeJQueryPlugin( $ );
+    import imagesLoaded from 'imagesloaded';
+    imagesLoaded.makeJQueryPlugin($);
+    // Loaders.CSS
+    import 'loaders.css/loaders.css.js';
     // Masonry (global access for other scripts)
-    window.Masonry = require('masonry');
-    // Screenfull (global access for other scripts)
-    import '../bower_components/screenfull/dist/screenfull.js';
+    import Masonry from 'masonry-layout';
+    window.Masonry = Masonry;
     // Sparkline
-    import '../bower_components/sparkline/index.js';
+    import 'jquery-sparkline';
     // Datepicker
-    import '../bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js';
+    import 'bootstrap-datepicker';
     // jQuery Knob charts
-    import '../bower_components/jquery-knob/js/jquery.knob.js';
+    import 'jquery-knob';
     // jQuery Form Validation
-    import '../bower_components/jquery-validation/dist/jquery.validate.js';
-    import '../bower_components/jquery-validation/dist/additional-methods.js';
+    import 'jquery-validation';
+    import 'jquery-validation/dist/additional-methods.js';
     // jQuery Steps
-    import '../bower_components/jquery.steps/build/jquery.steps.js';
+    import 'jquery-steps/build/jquery.steps.js';
     // Select2
-    import '../bower_components/select2/dist/js/select2.js';
+    import select2 from 'select2';
+    select2(window, $);
     // Clockpicker
-    import '../bower_components/clockpicker/dist/bootstrap-clockpicker.js';
-    // ColorPicker
-    import '../bower_components/mjolnic-bootstrap-colorpicker/dist/js/bootstrap-colorpicker.js';
+    import 'clockpicker/dist/bootstrap-clockpicker.js';
     // Summernote
-    import 'summernote-webpack-fix';
-    // Dropzone
-    // import '../bower_components/dropzone/dist/dropzone.js';
+    import 'summernote/dist/summernote-bs5.js';
     // Momentjs (global access for other scripts)
-    window.moment = require('moment');
+    import moment from 'moment';
+    window.moment = moment;
     // Xeditable
-    import '../bower_components/x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js';
+    import 'x-editable-bs5/dist/bootstrap5-editable/js/bootstrap-editable.js';
     // Google Maps (global access for other scripts)
-    window.GMaps = require('../bower_components/gmaps/gmaps.js');
+    import GMaps from 'gmaps';
+    window.GMaps = GMaps;
     // Bootgrid
-    import '../bower_components/jquery.bootgrid/dist/jquery.bootgrid.js';
-    import '../bower_components/jquery.bootgrid/dist/jquery.bootgrid.fa.js';
-    // Datatables
-    $.fn.dataTable = require('../bower_components/datatables/media/js/jquery.dataTables.js')( window, $ );
+    import 'jquery-bootgrid/dist/jquery.bootgrid.js';
+    import 'jquery-bootgrid/dist/jquery.bootgrid.fa.js';
+    // Datatables (registers $.fn.dataTable on the shared jQuery)
+    import 'datatables.net-bs5';
     // Nestable
-    import '../bower_components/nestable/jquery.nestable.js';
+    import 'nestable2';
     // Sweet Alert (global access for other scripts)
-    window.swal = require('../bower_components/sweetalert/lib/sweetalert.js');
+    import swal from 'sweetalert';
+    window.swal = swal;
     // jQuery Localize
-    import '../bower_components/jquery-localize-i18n/dist/jquery.localize.js';
+    import 'jquery-localize';
     // Blueimp Gallery
-    import '../bower_components/blueimp-gallery/js/blueimp-helper.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery-fullscreen.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery-indicator.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery-video.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery-vimeo.js';
-    import '../bower_components/blueimp-gallery/js/blueimp-gallery-youtube.js';
-    import '../bower_components/blueimp-gallery/js/jquery.blueimp-gallery.js';
+    import 'blueimp-gallery/js/blueimp-helper.js';
+    import 'blueimp-gallery/js/blueimp-gallery.js';
+    import 'blueimp-gallery/js/blueimp-gallery-fullscreen.js';
+    import 'blueimp-gallery/js/blueimp-gallery-indicator.js';
+    import 'blueimp-gallery/js/blueimp-gallery-video.js';
+    import 'blueimp-gallery/js/blueimp-gallery-vimeo.js';
+    import 'blueimp-gallery/js/blueimp-gallery-youtube.js';
+    import 'blueimp-gallery/js/jquery.blueimp-gallery.js';

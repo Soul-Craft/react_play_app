@@ -2,6 +2,11 @@ function tableBootgrid() {
 
     if ( !$.fn.bootgrid ) return;
 
+    // Bootstrap 5 opens dropdowns through data-bs-toggle; bootgrid's templates still say data-toggle
+    var defaults = $.fn.bootgrid.Constructor.defaults;
+    defaults.templates.actionDropDown = defaults.templates.actionDropDown.replace('data-toggle="dropdown"', 'data-bs-toggle="dropdown"');
+    defaults.css.dropDownMenuItems = 'dropdown-menu dropdown-menu-end pull-right';
+
     var ioniconCss = {
         icon: "icon",
         iconColumns: "ion-ios-list-outline",

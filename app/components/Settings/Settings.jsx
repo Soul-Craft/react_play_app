@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import { Modal } from 'react-bootstrap';
 import pubsub from 'pubsub-js';
 
@@ -19,15 +18,12 @@ class Settings extends React.Component {
     }
 
     componentDidMount() {
-        initSettings();
-        // https://github.com/facebook/react/issues/5053
-        setTimeout(initScreenfull, 2000);
-    }
-
-    componentWillMount() {
         this.pubsub_token = pubsub.subscribe('showsettings', () => {
             this.open();
         });
+        initSettings();
+        // https://github.com/facebook/react/issues/5053
+        setTimeout(initScreenfull, 2000);
     }
 
     componentWillUnmount() {
@@ -58,7 +54,7 @@ class Settings extends React.Component {
 
     render() {
         return (
-            <Modal show={this.state.showModal} bsSize="lg" onHide={this.close.bind(this)} className="modal modal-right fade modal-settings"
+            <Modal show={this.state.showModal} size="lg" onHide={this.close.bind(this)} className="modal modal-right fade modal-settings"
                 onEnter={this.onShowModal.bind(this)} onExited={this.onHiddenModal.bind(this)}>
                 <Modal.Header closeButton={true}>
                     <h4 className="modal-title"><span>Settings</span></h4>
@@ -231,8 +227,8 @@ class Settings extends React.Component {
                     <p>Change language</p>
                     {/* START Language list */}
                     <div className="btn-group">
-                        <button type="button" data-toggle="dropdown" className="btn btn-default btn-block btn-raised">{this.valueSelected}</button>
-                        <ul role="menu" className="dropdown-menu dropdown-menu-right animated fadeInUpShort">
+                        <button type="button" data-bs-toggle="dropdown" className="btn btn-default btn-block btn-raised">{this.valueSelected}</button>
+                        <ul role="menu" className="dropdown-menu dropdown-menu-right dropdown-menu-end animated fadeInUpShort">
                             <li><a href="#" data-set-lang="en" onClick={() => this.setValueSelected('English')}>English</a></li>
                             <li><a href="#" data-set-lang="es" onClick={() => this.setValueSelected('Spanish')}>Spanish</a></li>
                         </ul>

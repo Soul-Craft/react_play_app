@@ -1,16 +1,13 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import Nouislider from 'react-nouislider';
+import Nouislider from './Nouislider';
 
 import FormsAdvancedRun from './FormsAdvanced.run';
 
 class FormsAdvanced extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         FormsAdvancedRun();
     }
 
@@ -383,7 +380,7 @@ class FormsAdvanced extends React.Component {
                                         <div className="panel-heading">Bootstrap colors</div>
                                         <div className="panel-body">
                                             <div className="mda-form-control">
-                                                <input id="cp-demo-bootstrap" type="text" data-format="hex" defaultValue="success" className="form-control"/>
+                                                <input id="cp-demo-bootstrap" type="text" data-format="hex" defaultValue="#5cb85c" className="form-control"/>
                                                 <div className="mda-form-control-line"></div>
                                             </div>
                                         </div>

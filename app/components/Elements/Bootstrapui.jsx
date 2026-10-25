@@ -1,16 +1,13 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Breadcrumb, Grid, Row, Col, Jumbotron, Alert, ProgressBar, ButtonToolbar, OverlayTrigger, Button, Tooltip, Popover, ListGroup, ListGroupItem, Modal, Carousel, Accordion, Panel, Tabs, Tab, Well, Pagination} from 'react-bootstrap';
+import { Breadcrumb, Container, Row, Col, Alert, ProgressBar, ButtonToolbar, OverlayTrigger, Button, Tooltip, Popover, ListGroup, ListGroupItem, Modal, Carousel, Accordion, Tabs, Tab, Pagination } from 'react-bootstrap';
 
 import BootstrapRun from './Bootstrapui.run.js';
 
 class Bootstrapui extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         BootstrapRun();
     }
 
@@ -36,72 +33,88 @@ class Bootstrapui extends React.Component {
         });
     }
 
+    renderPagination(props) {
+        const items = [];
+        for (let page = 1; page <= 10; page++) {
+            items.push(
+                <Pagination.Item key={page} active={page === this.state.activePage} onClick={() => this.handleSelect(page)}>{page}</Pagination.Item>
+            );
+        }
+        return <Pagination {...props}>{items}</Pagination>;
+    }
+
     render() {
 
         const tooltip = (
           <Tooltip id="tooltip"><strong>Holy guacamole!</strong> Check this info.</Tooltip>
         );
 
-        const LinkWithTooltip = React.createClass({
-          render() {
-            let tooltip = <Tooltip id={this.props.id}>{this.props.tooltip}</Tooltip>;
+        const LinkWithTooltip = (props) => {
+            let tooltip = <Tooltip id={props.id}>{props.tooltip}</Tooltip>;
 
             return (
               <OverlayTrigger
                 overlay={tooltip} placement="top"
-                delayShow={300} delayHide={150}
+                delay={{ show: 300, hide: 150 }}
               >
-                <a href={this.props.href}>{this.props.children}</a>
+                <a href={props.href}>{props.children}</a>
               </OverlayTrigger>
             );
-          }
-        });
+        };
 
         const popoverLeft = (
-          <Popover id="popover-positioned-left" title="Popover left">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-positioned-left">
+            <Popover.Header>Popover left</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverTop = (
-          <Popover id="popover-positioned-top" title="Popover top">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-positioned-top">
+            <Popover.Header>Popover top</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverBottom = (
-          <Popover id="popover-positioned-bottom" title="Popover bottom">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-positioned-bottom">
+            <Popover.Header>Popover bottom</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverRight = (
-          <Popover id="popover-positioned-right" title="Popover right">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-positioned-right">
+            <Popover.Header>Popover right</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverClick = (
-          <Popover id="popover-trigger-click" title="Popover bottom">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-trigger-click">
+            <Popover.Header>Popover bottom</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverHoverFocus = (
-          <Popover id="popover-trigger-hover-focus" title="Popover bottom">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-trigger-hover-focus">
+            <Popover.Header>Popover bottom</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverFocus = (
-          <Popover id="popover-trigger-focus" title="Popover bottom">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-trigger-focus">
+            <Popover.Header>Popover bottom</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
         const popoverClickRootClose = (
-          <Popover id="popover-trigger-click-root-close" title="Popover bottom">
-            <strong>Holy guacamole!</strong> Check this info.
+          <Popover id="popover-trigger-click-root-close">
+            <Popover.Header>Popover bottom</Popover.Header>
+            <Popover.Body><strong>Holy guacamole!</strong> Check this info.</Popover.Body>
           </Popover>
         );
 
@@ -121,17 +134,17 @@ class Bootstrapui extends React.Component {
                       Bootstrap
                     </Breadcrumb.Item>
                 </Breadcrumb>
-                <Grid fluid>
+                <Container fluid>
                     {/* START row */}
                     <Row>
                         <Col lg={12}>
-                            <Jumbotron>
+                            <div className="jumbotron">
                                 <div className="container">
                                     <h1>Bootstrap Jumbotron</h1>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing.</p>
                                     <p><a role="button" className="btn btn-primary btn-lg">Learn more</a></p>
                                 </div>
-                            </Jumbotron>
+                            </div>
                         </Col>
                     </Row>
                     {/* END row */}
@@ -142,10 +155,10 @@ class Bootstrapui extends React.Component {
                             <div className="panel">
                                 <div className="panel-heading">Alert Styles</div>
                                 <div className="panel-body">
-                                    <Alert bsStyle="success">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
-                                    <Alert bsStyle="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
-                                    <Alert bsStyle="danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
-                                    <Alert bsStyle="warning">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
+                                    <Alert variant="success">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
+                                    <Alert variant="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
+                                    <Alert variant="danger">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
+                                    <Alert variant="warning">Lorem ipsum dolor sit amet, consectetur adipisicing elit.<a href="#" className="alert-link">Alert Link</a></Alert>
                                 </div>
                             </div>
                             {/* END panel */}
@@ -155,17 +168,17 @@ class Bootstrapui extends React.Component {
                                 <div className="panel-body">
                                     <h4>Static</h4>
                                     <ProgressBar now={60} />
-                                    <ProgressBar now={60} bsStyle="success"/>
-                                    <ProgressBar now={60} bsStyle="danger"/>
+                                    <ProgressBar now={60} variant="success"/>
+                                    <ProgressBar now={60} variant="danger"/>
                                     <h4>Striped</h4>
-                                    <ProgressBar now={40} striped bsStyle="success"/>
-                                    <ProgressBar now={20} striped bsStyle="info"/>
+                                    <ProgressBar now={40} striped variant="success"/>
+                                    <ProgressBar now={20} striped variant="info"/>
                                     <ProgressBar now={45} />
                                     <h4>Stacked</h4>
                                     <ProgressBar>
-                                        <ProgressBar striped bsStyle="success" now={35} key={1} />
-                                        <ProgressBar bsStyle="warning" now={20} key={2} />
-                                        <ProgressBar active bsStyle="danger" now={10} key={3} />
+                                        <ProgressBar striped variant="success" now={35} key={1} />
+                                        <ProgressBar variant="warning" now={20} key={2} />
+                                        <ProgressBar animated variant="danger" now={10} key={3} />
                                     </ProgressBar>
                                 </div>
                             </div>
@@ -177,16 +190,16 @@ class Bootstrapui extends React.Component {
                                     <div>
                                         <ButtonToolbar>
                                             <OverlayTrigger placement="left" overlay={tooltip}>
-                                              <Button bsStyle="default">Holy guacamole!</Button>
+                                              <Button variant="default">Holy guacamole!</Button>
                                             </OverlayTrigger>
                                             <OverlayTrigger placement="top" overlay={tooltip}>
-                                              <Button bsStyle="default">Holy guacamole!</Button>
+                                              <Button variant="default">Holy guacamole!</Button>
                                             </OverlayTrigger>
                                             <OverlayTrigger placement="bottom" overlay={tooltip}>
-                                              <Button bsStyle="default">Holy guacamole!</Button>
+                                              <Button variant="default">Holy guacamole!</Button>
                                             </OverlayTrigger>
                                             <OverlayTrigger placement="right" overlay={tooltip}>
-                                              <Button bsStyle="default">Holy guacamole!</Button>
+                                              <Button variant="default">Holy guacamole!</Button>
                                             </OverlayTrigger>
                                         </ButtonToolbar>
                                         <p className="muted" style={{ marginBottom: 0 }}>
@@ -209,7 +222,7 @@ class Bootstrapui extends React.Component {
                                 <div className="panel-heading">Modals</div>
                                 <div className="panel-body">
                                     <p>Click to get the full Modal experience!</p>
-                                    <Button bsStyle="primary" bsSize="large" onClick={this.open.bind(this)}>Launch demo modal</Button>
+                                    <Button variant="primary" size="lg" onClick={this.open.bind(this)}>Launch demo modal</Button>
                                     <Modal show={this.state.showModal} onHide={this.close.bind(this)}>
                                       <Modal.Header closeButton>
                                         <Modal.Title>Modal heading</Modal.Title>
@@ -411,15 +424,18 @@ class Bootstrapui extends React.Component {
                                 <div className="panel-heading">Collapsible Accordion Panel Group</div>
                                 <div className="panel-body">
                                     <Accordion>
-                                        <Panel header="Collapsible Group Item #1" eventKey="1">
-                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </Panel>
-                                        <Panel header="Collapsible Group Item #2" eventKey="2">
-                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </Panel>
-                                        <Panel header="Collapsible Group Item #3" eventKey="3">
-                                          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-                                        </Panel>
+                                        <Accordion.Item eventKey="1">
+                                          <Accordion.Header>Collapsible Group Item #1</Accordion.Header>
+                                          <Accordion.Body>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</Accordion.Body>
+                                        </Accordion.Item>
+                                        <Accordion.Item eventKey="2">
+                                          <Accordion.Header>Collapsible Group Item #2</Accordion.Header>
+                                          <Accordion.Body>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</Accordion.Body>
+                                        </Accordion.Item>
+                                        <Accordion.Item eventKey="3">
+                                          <Accordion.Header>Collapsible Group Item #3</Accordion.Header>
+                                          <Accordion.Body>Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.</Accordion.Body>
+                                        </Accordion.Item>
                                     </Accordion>
                                 </div>
                             </div>
@@ -452,7 +468,7 @@ class Bootstrapui extends React.Component {
                                 <div className="panel-heading">Pill Tabs</div>
                                 <div className="panel-body">
                                     <div>
-                                        <Tabs bsStyle="pills" defaultActiveKey={2} id="uncontrolled-tab-example">
+                                        <Tabs variant="pills" defaultActiveKey={2} id="uncontrolled-tab-example">
                                             <Tab eventKey={1} title="Home">Maecenas elementum, justo in pulvinar bibendum, tellus nulla adipiscing libero, at rutrum velit sapien vel velit. Phasellus hendrerit ullamcorper est eget tincidunt. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.</Tab>
                                             <Tab eventKey={2} title="Profile">Nullam eu lacus in nibh rutrum ornare at eget tellus. Nullam rutrum convallis lacus non mattis. Praesent dapibus justo dolor. Duis convallis placerat egestas. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.</Tab>
                                             <Tab eventKey={3} title="Messages">Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere. Aenean non neque a tortor tempor consequat a ut ligula. Mauris eros nibh, adipiscing ac commodo vel, molestie mattis magna. Curabitur adipiscing, tellus ut congue tempus, dui lacus cursus risus, nec pellentesque mi purus eget augue. Fusce ullamcorper placerat tortor, placerat consequat diam cursus posuere.</Tab>
@@ -468,22 +484,22 @@ class Bootstrapui extends React.Component {
                     {/* START row */}
                     <Row>
                         <Col lg={4}>
-                            <Well bsSize="large">
+                            <div className="well well-lg">
                                 <h4 className="mt0">Large Well</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                            </Well>
+                            </div>
                         </Col>
                         <Col lg={4}>
-                            <Well>
+                            <div className="well">
                                 <h4 className="mt0">Normal Well</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                            </Well>
+                            </div>
                         </Col>
                         <Col lg={4}>
-                            <Well bsSize="small">
+                            <div className="well well-sm">
                                 <h4 className="mt0">Small Well</h4>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                            </Well>
+                            </div>
                         </Col>
                     </Row>
                     {/* END row */}
@@ -494,39 +510,22 @@ class Bootstrapui extends React.Component {
                         </div>
                         <div className="panel-body">
                             <div className="text-center">
-                                <Pagination
-                                  bsSize="large"
-                                  items={10}
-                                  activePage={this.state.activePage}
-                                  onSelect={this.handleSelect.bind(this)} />
+                                {this.renderPagination({size: "lg"})}
                                 <br />
 
-                                <Pagination
-                                  bsSize="medium"
-                                  items={10}
-                                  activePage={this.state.activePage}
-                                  onSelect={this.handleSelect.bind(this)} />
+                                {this.renderPagination({})}
                                 <br />
 
-                                <Pagination
-                                  bsSize="small"
-                                  items={10}
-                                  activePage={this.state.activePage}
-                                  onSelect={this.handleSelect.bind(this)} />
+                                {this.renderPagination({size: "sm"})}
                             </div>
                             <h5>Rounded buttons</h5>
                             <div className="text-center">
-                                <Pagination
-                                  className="pagination-rounded"
-                                  bsSize="large"
-                                  items={10}
-                                  activePage={this.state.activePage}
-                                  onSelect={this.handleSelect.bind(this)} />
+                                {this.renderPagination({className: "pagination-rounded", size: "lg"})}
                             </div>
                         </div>
                     </div>
                     {/* END panel */}
-                </Grid>
+                </Container>
             </section>
         );
     }

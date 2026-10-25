@@ -1,10 +1,10 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Search extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
@@ -25,7 +25,7 @@ class Search extends React.Component {
                         </form>
                     </div>
                 </div>
-                <Grid className="container-md">
+                <Container className="container-md">
                     <div className="card">
                         <div className="card-body">
                             <p className="lead">Search results for &quot;material template&quot;</p>
@@ -69,7 +69,7 @@ class Search extends React.Component {
                             </nav>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

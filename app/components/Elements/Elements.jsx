@@ -1,7 +1,6 @@
 import Bootstrapui from './Bootstrapui.jsx';
 import Buttons from './Buttons.jsx';
 import Colors from './Colors.jsx';
-import Elements from './Elements.jsx';
 import Grid from './Grid.jsx';
 import GridMasonry from './GridMasonry.jsx';
 import Icons from './Icons.jsx';
@@ -17,7 +16,6 @@ export default {
     Bootstrapui,
     Buttons,
     Colors,
-    Elements,
     Grid,
     GridMasonry,
     Icons,

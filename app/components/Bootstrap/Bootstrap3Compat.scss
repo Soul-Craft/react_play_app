@@ -1,0 +1,247 @@
+/**
+ * Bootstrap 3 compatibility
+ *
+ * The theme's markup was written for Bootstrap 3; the app now ships Bootstrap 5, which dropped
+ * these classes. These are the Bootstrap 3.4 structural rules (MIT) the markup still relies on.
+ * Colors and the theme's own spacing come from the files loaded after this one (Reset.scss, ...).
+ */
+
+@use 'sass:math';
+
+// Grid: extra-small columns
+// -----------------------------------
+
+@for $i from 1 through 12 {
+    .col-xs-#{$i} {
+        flex: 0 0 auto;
+        width: math.percentage(math.div($i, 12));
+    }
+}
+
+// Helpers
+// -----------------------------------
+
+.pull-left { float: left !important; }
+.pull-right { float: right !important; }
+.center-block { display: block; margin-right: auto; margin-left: auto; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.hidden { display: none !important; }
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+// Responsive visibility (Bootstrap 3 breakpoints)
+.visible-xs, .visible-sm, .visible-md, .visible-lg { display: none !important; }
+@media (max-width: 767px) {
+    .visible-xs { display: block !important; }
+    .hidden-xs { display: none !important; }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .visible-sm { display: block !important; }
+    .hidden-sm { display: none !important; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .visible-md { display: block !important; }
+    .hidden-md { display: none !important; }
+}
+@media (min-width: 1200px) {
+    .visible-lg { display: block !important; }
+    .hidden-lg { display: none !important; }
+}
+
+// Images
+// -----------------------------------
+
+.img-responsive { display: block; max-width: 100%; height: auto; }
+.img-rounded { border-radius: 6px; }
+.img-circle { border-radius: 50%; }
+
+// Panels, wells, labels
+// -----------------------------------
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+.panel-body {
+    padding: 15px;
+    &::after { display: table; clear: both; content: ""; }
+}
+.panel-heading {
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.panel-title { margin-top: 0; margin-bottom: 0; font-size: 16px; color: inherit; }
+.panel-footer {
+    padding: 10px 15px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.panel-group {
+    margin-bottom: 20px;
+    .panel { margin-bottom: 0; }
+    .panel + .panel { margin-top: 5px; }
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.well-lg { padding: 24px; border-radius: 6px; }
+.well-sm { padding: 9px; border-radius: 3px; }
+
+.jumbotron { margin-bottom: 30px; }
+.page-header { padding-bottom: 9px; margin: 40px 0 20px; border-bottom: 1px solid #eee; }
+
+.label {
+    display: inline;
+    padding: .2em .6em .3em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25em;
+    &:empty { display: none; }
+}
+.label-default { background-color: #777; }
+
+// Buttons and dropdowns
+// -----------------------------------
+
+.btn-xs { padding: 1px 5px; font-size: 12px; line-height: 1.5; border-radius: 3px; }
+.btn-block { display: block; width: 100%; }
+.btn-block + .btn-block { margin-top: 5px; }
+.caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    vertical-align: middle;
+    border-top: 4px dashed;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+}
+// react-bootstrap toggles that had noCaret
+.dropdown-toggle.no-caret::after { display: none; }
+.dropdown-menu > li > a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+    text-decoration: none;
+    &:hover, &:focus { color: #262626; background-color: #f5f5f5; }
+}
+.dropdown-menu .divider { height: 1px; margin: 9px 0; overflow: hidden; background-color: #e5e5e5; }
+
+// Forms
+// -----------------------------------
+
+.form-group { margin-bottom: 15px; }
+.help-block { display: block; margin-top: 5px; margin-bottom: 10px; color: #737373; }
+.form-control-static { min-height: 34px; padding-top: 7px; padding-bottom: 7px; margin-bottom: 0; }
+.input-lg { height: 46px; padding: 10px 16px; font-size: 18px; line-height: 1.3333333; border-radius: 6px; }
+.input-sm { height: 30px; padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px; }
+
+.checkbox, .radio {
+    position: relative;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    label { min-height: 20px; padding-left: 20px; margin-bottom: 0; font-weight: 400; cursor: pointer; }
+}
+.checkbox-inline, .radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.checkbox-inline + .checkbox-inline, .radio-inline + .radio-inline { margin-top: 0; margin-left: 10px; }
+
+.input-group-addon {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: #555;
+    text-align: center;
+    white-space: nowrap;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.input-group-btn { position: relative; display: flex; white-space: nowrap; }
+
+.form-horizontal .form-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    > [class*="col-"] { padding-right: 15px; padding-left: 15px; }
+}
+@media (min-width: 768px) {
+    .form-horizontal .control-label { padding-top: 7px; margin-bottom: 0; text-align: right; }
+    .form-inline .form-group { display: inline-block; margin-bottom: 0; vertical-align: middle; }
+    .form-inline .form-control { display: inline-block; width: auto; vertical-align: middle; }
+}
+
+// Lists, tables, media objects
+// -----------------------------------
+
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+    > li { display: inline-block; padding-right: 5px; padding-left: 5px; }
+}
+.table-condensed > :not(caption) > * > * { padding: 5px; }
+@media (min-width: 768px) {
+    .dl-horizontal dt {
+        float: left;
+        width: 160px;
+        clear: left;
+        text-align: right;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .dl-horizontal dd { margin-left: 180px; }
+}
+
+.media { margin-top: 15px; &:first-child { margin-top: 0; } }
+.media, .media-body { overflow: hidden; }
+.media-body { width: 10000px; }
+.media-object { display: block; }
+.media-left, .media > .pull-left { padding-right: 10px; }
+.media-right, .media > .pull-right { padding-left: 10px; }
+.media-left, .media-right, .media-body { display: table-cell; vertical-align: top; }
+.media-middle { vertical-align: middle; }
+.media-bottom { vertical-align: bottom; }
+.media-heading { margin-top: 0; margin-bottom: 5px; }

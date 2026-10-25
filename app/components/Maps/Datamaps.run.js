@@ -1,4 +1,5 @@
-import Datamap from 'datamaps';
+// Both maps use the 'usa' scope; the USA build is 74 kB, datamaps.all is 7.8 MB
+import Datamap from 'datamaps/dist/datamaps.usa.js';
 
 function dataMaps() {
 

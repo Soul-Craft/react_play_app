@@ -1,17 +1,17 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 class Gallery extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
     render() {
         return (
             <section>
-                <Grid fluid className="container-unwrap">
+                <Container fluid className="container-unwrap">
                     <Row>
                         <Col lg={4} md={6}>
                             <div className="card">
@@ -144,7 +144,7 @@ class Gallery extends React.Component {
                             </div>
                         </Col>
                     </Row>
-                </Grid>
+                </Container>
                 {/* The gallery preview container */}
                 <div id="blueimp-gallery" className="blueimp-gallery">
                     <div className="slides">

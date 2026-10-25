@@ -1,24 +1,21 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 
 import './GoogleMap.scss';
 import GoogleMapRun from './GoogleMap.run';
 
 class GoogleMap extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         GoogleMapRun();
     }
 
     render() {
         return (
             <section>
-                <Grid fluid>
+                <Container fluid>
                     <Row>
                         <Col md={6}>
                             <div className="card card-default">
@@ -43,7 +40,7 @@ class GoogleMap extends React.Component {
                             <div id="panorama" className="gmap"></div>
                         </div>
                     </div>
-                </Grid>
+                </Container>
             </section>
         );
     }

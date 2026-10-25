@@ -1,12 +1,12 @@
 import React from 'react';
 import pubsub from 'pubsub-js';
-import { Grid, Row, Col, Button, Dropdown, MenuItem, Modal } from 'react-bootstrap';
+import { Container, Row, Col, Button, Dropdown, Modal } from 'react-bootstrap';
 
 import MessagesRun from './Messages.run';
 
 class Messages extends React.Component {
 
-    componentWillMount() {
+    componentDidMount() {
         pubsub.publish('setPageTitle', this.constructor.name);
     }
 
@@ -51,14 +51,14 @@ class Messages extends React.Component {
                                     <td className="wd-xxs">
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd1">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd1">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -72,14 +72,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd2">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd2">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -95,14 +95,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd3">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd3">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -116,14 +116,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd4">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd4">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -137,14 +137,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd5">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd5">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -167,14 +167,14 @@ class Messages extends React.Component {
                                     <td className="wd-xxs">
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd6">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd6">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -188,14 +188,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd7">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd7">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -211,14 +211,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd8">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd8">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -232,14 +232,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd9">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd9">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -253,14 +253,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd10">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd10">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -276,14 +276,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd11">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd11">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -299,14 +299,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd12">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd12">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -329,14 +329,14 @@ class Messages extends React.Component {
                                     <td className="wd-xxs">
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd13">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd13">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -350,14 +350,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd14">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd14">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -373,14 +373,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd15">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd15">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -394,14 +394,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd16">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd16">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -415,14 +415,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd17">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd17">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -438,14 +438,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd18">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd18">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -461,14 +461,14 @@ class Messages extends React.Component {
                                     <td>
                                         {/* START dropdown */}
                                         <div className="pull-right">
-                                            <Dropdown pullRight id="dd19">
-                                                <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                            <Dropdown align="end" id="dd19">
+                                                <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                                   <em className="ion-android-more-vertical"></em>
                                                 </Dropdown.Toggle>
                                                 <Dropdown.Menu className="md-dropdown-menu" >
-                                                    <MenuItem eventKey="1"><em className="ion-reply icon-fw"></em>Reply</MenuItem>
-                                                    <MenuItem eventKey="2"><em className="ion-forward icon-fw"></em>Forward</MenuItem>
-                                                    <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</MenuItem>
+                                                    <Dropdown.Item eventKey="1"><em className="ion-reply icon-fw"></em>Reply</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="2"><em className="ion-forward icon-fw"></em>Forward</Dropdown.Item>
+                                                    <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Spam</Dropdown.Item>
                                                 </Dropdown.Menu>
                                             </Dropdown>
                                         </div>
@@ -504,14 +504,14 @@ class Messages extends React.Component {
                         <Modal.Body>
                             {/* START dropdown */}
                             <div className="pull-right">
-                                <Dropdown pullRight id="dd20">
-                                    <Dropdown.Toggle noCaret className="btn-flat btn-flat-icon">
+                                <Dropdown align="end" id="dd20">
+                                    <Dropdown.Toggle variant="default" className="no-caret btn-flat btn-flat-icon">
                                       <em className="ion-android-more-vertical"></em>
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu className="md-dropdown-menu" >
-                                        <MenuItem eventKey="1"><em className="ion-star icon-fw"></em>Favorite</MenuItem>
-                                        <MenuItem eventKey="2"><em className="ion-ios-box icon-fw"></em>Archive</MenuItem>
-                                        <MenuItem eventKey="3"><em className="ion-trash-a icon-fw"></em>Discard</MenuItem>
+                                        <Dropdown.Item eventKey="1"><em className="ion-star icon-fw"></em>Favorite</Dropdown.Item>
+                                        <Dropdown.Item eventKey="2"><em className="ion-ios-box icon-fw"></em>Archive</Dropdown.Item>
+                                        <Dropdown.Item eventKey="3"><em className="ion-trash-a icon-fw"></em>Discard</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </div>
@@ -541,7 +541,7 @@ class Messages extends React.Component {
                                     </form>
                                 </div>
                             </div>
-                            <Button onClick={this.closeMsg.bind(this)} bsStyle="success">Send</Button>
+                            <Button onClick={this.closeMsg.bind(this)} variant="success">Send</Button>
                         </Modal.Footer>
                     </Modal>
                     {/* End Modal content example for messages */}
@@ -564,7 +564,7 @@ class Messages extends React.Component {
                                         <label>Message</label>
                                     </div>
                                 </div>
-                                <Button onClick={this.closeNew.bind(this)} bsStyle="success">Send</Button>
+                                <Button onClick={this.closeNew.bind(this)} variant="success">Send</Button>
                             </form>
                         </Modal.Body>
                     </Modal>

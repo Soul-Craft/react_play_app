@@ -6,11 +6,8 @@ import ValidationRun from './Validation.run';
 
 class Validation extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         ValidationRun();
     }
 

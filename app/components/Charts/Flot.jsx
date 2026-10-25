@@ -5,11 +5,8 @@ import FlotRun from './Flot.run';
 
 class Flot extends React.Component {
 
-    componentWillMount() {
-        pubsub.publish('setPageTitle', this.constructor.name);
-    }
-
     componentDidMount() {
+        pubsub.publish('setPageTitle', this.constructor.name);
         FlotRun();
     }
 
