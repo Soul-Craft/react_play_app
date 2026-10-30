@@ -12,7 +12,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@melloware/coloris": "^0.25.0",
+    "@melloware/coloris": "^0.25.1",
     "animate.css": "^4.1.1",
     "blueimp-gallery": "^3.4.0",
     "bootstrap": "^5.3.8",
