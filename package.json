@@ -58,7 +58,7 @@
     "x-editable-bs5": "^1.5.8"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.1.2",
+    "@vitejs/plugin-react": "^6.2.1",
     "sass": "^1.107.1",
     "vite": "^8.3.5"
   },
