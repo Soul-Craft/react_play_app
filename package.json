@@ -58,9 +58,9 @@
     "x-editable-bs5": "^1.5.8"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^6.2.1",
+    "@vitejs/plugin-react": "^6.3.0",
     "sass": "^1.108.1",
-    "vite": "^8.3.6"
+    "vite": "^8.3.7"
   },
   "overrides": {
     "bootstrap-datepicker": {
